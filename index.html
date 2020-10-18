@@ -14,15 +14,18 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
-    <!-- Nav -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #913838;">
         <div class="container">
+
           <!-- Brand -->
           <a class="navbar-brand" href="#">Car Dealership CRUD</a>
+
           <!-- Toggler/collapsibe Button -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
+
           <!-- Links -->
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
@@ -37,10 +40,11 @@
               </li>
             </ul>
           </div>
+
         </div>
     </nav>
 
-    <!-- Add vehical modal -->
+    <!-- Add a new vehical modal -->
     <div class="modal fade" id="newVehicalModal" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -139,7 +143,7 @@
                     </form>
                 </div>
         
-                <!-- Modal footer -->
+                <!-- Modal buttons -->
                 <div class="modal-footer">
                     <button type="button" id="addVehicalModalSubmit" class="btn btn-success">Add</button>
                     <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
@@ -148,20 +152,26 @@
         </div>
     </div>
 
-    <!-- Delete vehical modal -->
+    <!-- Delete a vehical modal -->
     <div class="modal fade" id="deleteVehicalModal" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
+
+                <!-- Modal header -->
                 <div class="modal-header">
                     <h5 class="modal-title">Delete vehical</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+
+                  <!-- Modal body -->
                   <div class="modal-body">
                     <p>Are you sure you want to delete this vehical from the inventory?</p>
                     <h5 id="deleteModalMessage"></h5>
                   </div>
+
+                  <!-- Modal buttons -->
                   <div class="modal-footer">
                     <button type="button" id="deleteVehicalModalSubmit" class="btn btn-danger">Delete</button>
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
@@ -170,15 +180,16 @@
         </div>
     </div>
 
+    <!-- Sidebar -->
     <div class="container mt-3">
         <div class="row">
-            <!-- Sidebar from -->
             <div class="col-2 bg-light pb-3">
 
                 <!-- Add a new vehical -->
                 <h4 class="text-center">Add Vehical</h4>
                 <button type="button" id="addNewVehical" class="btn btn-block btn-success" data-toggle="modal" data-target="#newVehicalModal"><i class="fas fa-plus"></i></button>
                 <hr>
+                <!-- Sidebar search form -->
                 <form>
                     
                     <!-- Make -->
@@ -275,6 +286,8 @@
             <!-- Table -->
             <div class="col">
                 <table class="table table-striped table-bordered">
+
+                    <!-- Table header -->
                     <thead class="thead-dark">
                         <tr>
                             <th class="px-1 py-1 text-center">Make<button id="sortByMake" class="ml-2 px-1 btn btn-sm btn-light"><i class="fas fa-sort"></i></button></th>
@@ -289,7 +302,10 @@
                             <th class="px-1 py-2 text-center">Edit / Delete</th>
                         </tr>
                     </thead>
+
+                    <!-- Table body -->
                     <tbody></tbody>
+                    
                 </table>
             </div>
 
