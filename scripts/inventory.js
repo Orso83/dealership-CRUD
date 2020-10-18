@@ -190,8 +190,7 @@ function deleteRow(row) {
 $('#deleteVehicalModalSubmit').click(function() {
 
     // Call the delete ajax function, pass in the row's id.
-    // deleteVehical($(row).closest('tr').attr('id'));
-    console.log(id);
+    deleteVehical(id);
 
     // Close the modal from.
     $('#deleteVehicalModal').modal('hide');
