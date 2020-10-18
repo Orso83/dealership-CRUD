@@ -87,6 +87,9 @@ $('#addVehicalModalSubmit').click(function(event) {
         // Submit the data the the ajax post method.
         post();
 
+        // Update the search form's select dropdowns.
+        window.setTimeout(reloadSelectDropdowns, TIMER_DELAY);
+
         // Update the table.
         window.setTimeout(get, TIMER_DELAY);
 
@@ -194,6 +197,9 @@ $('#deleteVehicalModalSubmit').click(function() {
 
     // Close the modal from.
     $('#deleteVehicalModal').modal('hide');
+
+    // Update the search form's select dropdowns.
+    window.setTimeout(reloadSelectDropdowns, TIMER_DELAY);
 
     // Update the table.
     window.setTimeout(get, TIMER_DELAY);
@@ -413,7 +419,12 @@ function post() {
     $.ajax({
         url: 'api/inventory',
         method: 'POST',
-        data: postObject
+        data: postObject,
+        success: function() {
+            // Reload the search from's select dropdowns and the table body.
+            reloadSelectDropdowns();
+            get();
+        }
     });
 }
 /************************************ END *************************************/
@@ -429,7 +440,12 @@ function post() {
 function deleteVehical(id) {
     $.ajax({
         url: 'api/inventory/?id='+id,
-        method: 'DELETE'
+        method: 'DELETE',
+        success: function() {
+            // Reload the search from's select dropdowns and the table body.
+            reloadSelectDropdowns();
+            get();
+        }
     });
 }
 /************************************ END *************************************/
@@ -532,30 +548,6 @@ function getDistinctTransmission() {
 
 /**************************************************************************
 * Purpose: This function handles the ajax get request for unique vehical  *
-*          types. The returned data is used to build the search form's    *
-*          select dropdown for vehical types.                             *
-*                                                                         *
-* Inputs:  None.                                                          *
-*                                                                         *
-* Output:  Builds the search form's dropdown for vehical types.           *
-**************************************************************************/
-function getDistinctType() {
-    $.ajax({
-        url: 'api/inventory',
-        method: 'GET',
-        data: {distinctType: '1'},
-        success: function(data) {
-            // Fill the 'type' dropdown with results.
-            $.each(data, function(index, value) {
-                $('#selectType').append("<option value=\""+value.type+"\">"+value.type+"</option>");
-            });
-        }
-    });
-}
-/************************************ END *************************************/
-
-/**************************************************************************
-* Purpose: This function handles the ajax get request for unique vehical  *
 *          drivetrains. The returned data is used to build the search     *
 *          form's select dropdown for vehical drivetrains.                *
 *                                                                         *
@@ -575,5 +567,37 @@ function getDistinctDrivetrain() {
             });
         }
     });
+}
+/************************************ END *************************************/
+
+/**************************************************************************
+* Purpose: This function will call all of the get distinct functions      *
+*          inorder to repopulate the search form's select dropdowns.      *
+*                                                                         *
+* Inputs:  None.                                                          *
+*                                                                         *
+* Output:  None.                                                          *
+**************************************************************************/
+function reloadSelectDropdowns() {
+    // Clear the current options from the select dropdowns.
+    $('#selectMake').empty();
+    $('#selectColor').empty();
+    $('#selectType').empty();
+    $('#selectTransmission').empty();
+    $('#selectDrivetrain').empty();
+
+    // Add the 'All' option to the select dropdowns.
+    $('#selectMake').append("<option value=\"All\">All</option>");
+    $('#selectColor').append("<option value=\"All\">All</option>");
+    $('#selectType').append("<option value=\"All\">All</option>");
+    $('#selectTransmission').append("<option value=\"All\">All</option>");
+    $('#selectDrivetrain').append("<option value=\"All\">All</option>");
+
+    // Call the get distinct ajax request.
+    getDistinctMake();
+    getDistinctColor();
+    getDistinctType();
+    getDistinctTransmission();
+    getDistinctDrivetrain();
 }
 /************************************ END *************************************/
