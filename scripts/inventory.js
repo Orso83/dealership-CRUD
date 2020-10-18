@@ -4,7 +4,9 @@ const TIMER_DELAY = 1000;
 // Empty objects to fill with form data used in the ajax request.
 var getObject = {};
 var postObject = {};
-var deleteObject = {};
+
+// Variable to store the selected table row's key id value.
+var id;
 
 /*********************** Add new vehical - Button event ***********************/
 $('#addNewVehical').click(function() {
@@ -175,21 +177,28 @@ $('#addNewDrivetrain').keyup(function() {
 * Output:  None.                                                          *
 **************************************************************************/
 function deleteRow(row) {
-    $('#deleteModalMessage').text($(row).closest('tr')[0].cells[4].innerText+", "+$(row).closest('tr')[0].cells[2].innerText+" "+$(row).closest('tr')[0].cells[0].innerText+" "+$(row).closest('tr')[0].cells[1].innerText);
-    // $(row).closest('tr').attr('id')
+    
+    // Create the modal 'Are you sure' message.
+    $('#deleteModalMessage').text($(row).closest('tr')[0].cells[4].innerText+", "+$(row).closest('tr')[0].cells[2].innerText+" "+$(row).closest('tr')[0].cells[0].innerText+" "+$(row).closest('tr')[0].cells[1].innerText+".");
 
-    $('#deleteVehicalModalSubmit').click(function() {
-
-        // Call the delete ajax function, pass in the row's id.
-        deleteVehical($(row).closest('tr').attr('id'));
-
-        // Close the modal from.
-        $('#deleteVehicalModal').modal('hide');
-
-        // Update the table.
-        window.setTimeout(get, TIMER_DELAY);
-    });
+    // Take the row id and store it in a variable.
+    id = $(row).closest('tr').attr('id');
 }
+/************************************ END *************************************/
+
+/********************* Delete modal - Delete button event *********************/
+$('#deleteVehicalModalSubmit').click(function() {
+
+    // Call the delete ajax function, pass in the row's id.
+    // deleteVehical($(row).closest('tr').attr('id'));
+    console.log(id);
+
+    // Close the modal from.
+    $('#deleteVehicalModal').modal('hide');
+
+    // Update the table.
+    window.setTimeout(get, TIMER_DELAY);
+});
 /************************************ END *************************************/
 
 function editRow(row) {
@@ -549,7 +558,7 @@ function getDistinctType() {
 /**************************************************************************
 * Purpose: This function handles the ajax get request for unique vehical  *
 *          drivetrains. The returned data is used to build the search     *
-           form's select dropdown for vehical drivetrains.                *
+*          form's select dropdown for vehical drivetrains.                *
 *                                                                         *
 * Inputs:  None.                                                          *
 *                                                                         *
