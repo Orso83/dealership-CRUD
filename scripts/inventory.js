@@ -4,9 +4,12 @@ const TIMER_DELAY = 1000;
 // Empty objects to fill with form data used in the ajax request.
 var getObject = {};
 var postObject = {};
+var editObject = {};
+var currentData = {};
 
 // Variable to store the selected table row's key id value.
 var id;
+var url = "";
 
 /*********************** Add new vehical - Button event ***********************/
 $('#addNewVehical').click(function() {
@@ -42,47 +45,47 @@ $('#addVehicalModalSubmit').click(function(event) {
     event.preventDefault();
 
     // Check the form for valid data.
-    if($('#addNewMake')[0].value == "") {
+    if($('#addNewMake').val() == "") {
         $('#addNewMake').addClass("is-invalid");
     }
-    if($('#addNewModel')[0].value == "") {
+    if($('#addNewModel').val() == "") {
         $('#addNewModel').addClass("is-invalid");
     }
-    if($('#addNewYear')[0].value == "") {
+    if($('#addNewYear').val() == "") {
         $('#addNewYear').addClass("is-invalid");
     }
-    if($('#addNewPrice')[0].value == "") {
+    if($('#addNewPrice').val() == "") {
         $('#addNewPrice').addClass("is-invalid");
     }
-    if($('#addNewColor')[0].value == "") {
+    if($('#addNewColor').val() == "") {
         $('#addNewColor').addClass("is-invalid");
     }
-    if($('#addNewMileage')[0].value == "") {
+    if($('#addNewMileage').val() == "") {
         $('#addNewMileage').addClass("is-invalid");
     }
-    if($('#addNewType')[0].value == "") {
+    if($('#addNewType').val() == "") {
         $('#addNewType').addClass("is-invalid");
     }
-    if($('#addNewTransmission')[0].value == "") {
+    if($('#addNewTransmission').val() == "") {
         $('#addNewTransmission').addClass("is-invalid");
     }
-    if($('#addNewDrivetrain')[0].value == "") {
+    if($('#addNewDrivetrain').val() == "") {
         $('#addNewDrivetrain').addClass("is-invalid");
     }
 
     // If the form is completely filled out, submit it.
-    if($('#addNewMake')[0].value != "" && $('#addNewModel')[0].value != "" && $('#addNewYear')[0].value != "" && $('#addNewPrice')[0].value != "" && $('#addNewColor')[0].value != "" && $('#addNewMileage')[0].value != "" && $('#addNewType')[0].value != "" && $('#addNewTransmission')[0].value != "" && $('#addNewDrivetrain')[0].value != "") {
+    if($('#addNewMake').val() != "" && $('#addNewModel').val() != "" && $('#addNewYear').val() != "" && $('#addNewPrice').val() != "" && $('#addNewColor').val() != "" && $('#addNewMileage').val() != "" && $('#addNewType').val() != "" && $('#addNewTransmission').val() != "" && $('#addNewDrivetrain').val() != "") {
 
         // Add the data to the JS object.
-        postObject.make = $('#addNewMake')[0].value;
-        postObject.model = $('#addNewModel')[0].value;
-        postObject.year = $('#addNewYear')[0].value;
-        postObject.price = $('#addNewPrice')[0].value;
-        postObject.color = $('#addNewColor')[0].value;
-        postObject.mileage = $('#addNewMileage')[0].value;
-        postObject.type = $('#addNewType')[0].value;
-        postObject.transmission = $('#addNewTransmission')[0].value;
-        postObject.drive = $('#addNewDrivetrain')[0].value;
+        postObject.make = $('#addNewMake').val();
+        postObject.model = $('#addNewModel').val();
+        postObject.year = $('#addNewYear').val();
+        postObject.price = $('#addNewPrice').val();
+        postObject.color = $('#addNewColor').val();
+        postObject.mileage = $('#addNewMileage').val();
+        postObject.type = $('#addNewType').val();
+        postObject.transmission = $('#addNewTransmission').val();
+        postObject.drive = $('#addNewDrivetrain').val();
 
         // Submit the data the the ajax post method.
         post();
@@ -107,63 +110,63 @@ $('#addVehicalModalSubmit').click(function(event) {
 
 // Make.
 $('#addNewMake').keyup(function() {
-    if($('#addNewMake')[0].value != "") {
+    if($('#addNewMake').val() != "") {
         $('#addNewMake').removeClass("is-invalid");
     }
 });
 
 // Model.
 $('#addNewModel').keyup(function() {
-    if($('#addNewModel')[0].value != "") {
+    if($('#addNewModel').val() != "") {
         $('#addNewModel').removeClass("is-invalid");
     }
 });
 
 // Year.
 $('#addNewYear').keyup(function() {
-    if($('#addNewYear')[0].value != "") {
+    if($('#addNewYear').val() != "") {
         $('#addNewYear').removeClass("is-invalid");
     }
 });
 
 // Price.
 $('#addNewPrice').keyup(function() {
-    if($('#addNewPrice')[0].value != "") {
+    if($('#addNewPrice').val() != "") {
         $('#addNewPrice').removeClass("is-invalid");
     }
 });
 
 // Color.
 $('#addNewColor').keyup(function() {
-    if($('#addNewColor')[0].value != "") {
+    if($('#addNewColor').val() != "") {
         $('#addNewColor').removeClass("is-invalid");
     }
 });
 
 // Mileage.
 $('#addNewMileage').keyup(function() {
-    if($('#addNewMileage')[0].value != "") {
+    if($('#addNewMileage').val() != "") {
         $('#addNewMileage').removeClass("is-invalid");
     }
 });
 
 // Vehical type.
 $('#addNewType').keyup(function() {
-    if($('#addNewType')[0].value != "") {
+    if($('#addNewType').val() != "") {
         $('#addNewType').removeClass("is-invalid");
     }
 });
 
 // Transmission.
 $('#addNewTransmission').keyup(function() {
-    if($('#addNewTransmission')[0].value != "") {
+    if($('#addNewTransmission').val() != "") {
         $('#addNewTransmission').removeClass("is-invalid");
     }
 });
 
 // Drivetrain.
 $('#addNewDrivetrain').keyup(function() {
-    if($('#addNewDrivetrain')[0].value != "") {
+    if($('#addNewDrivetrain').val() != "") {
         $('#addNewDrivetrain').removeClass("is-invalid");
     }
 });
@@ -207,8 +210,120 @@ $('#deleteVehicalModalSubmit').click(function() {
 /************************************ END *************************************/
 
 function editRow(row) {
-    console.log($(row).closest('tr')[0].cells[0].innerText);
+
+    // Fill the form with the current data from the selected row.
+    $('#editMake').val($(row).closest('tr')[0].cells[0].innerText);
+    $('#editModel').val($(row).closest('tr')[0].cells[1].innerText);
+    $('#editYear').val($(row).closest('tr')[0].cells[2].innerText);
+    $('#editPrice').val($(row).closest('tr')[0].cells[3].innerText);
+    $('#editColor').val($(row).closest('tr')[0].cells[4].innerText);
+    $('#editMileage').val($(row).closest('tr')[0].cells[5].innerText);
+    $('#editType').val($(row).closest('tr')[0].cells[6].innerText);
+    $('#editTransmission').val($(row).closest('tr')[0].cells[7].innerText);
+    $('#editDrivetrain').val($(row).closest('tr')[0].cells[8].innerText);
+
+    // Take the row id and store it in a variable.
+    id = $(row).closest('tr').attr('id');
+
+    // Fill the object with the current data.
+    currentData.make = $('#editMake').val();
+    currentData.model = $('#editModel').val();
+    currentData.year = $('#editYear').val();
+    currentData.price = $('#editPrice').val();
+    currentData.color = $('#editColor').val();
+    currentData.mileage = $('#editMileage').val();
+    currentData.type = $('#editType').val();
+    currentData.transmission = $('#editTransmission').val();
+    currentData.drive = $('#editDrivetrain').val();
 }
+/************************************ END *************************************/
+
+/****************** Add vehical modal - Submit button event *******************/
+$('#editVehicalModalSubmit').click(function(event) {
+
+    // Prevent the defualt form behavior.
+    event.preventDefault();
+
+    // Check the form for valid data.
+    if($('#editMake').val() == "") {
+        $('#editMake').addClass("is-invalid");
+    }
+    if($('#editModel').val() == "") {
+        $('#editModel').addClass("is-invalid");
+    }
+    if($('#editYear').val() == "") {
+        $('#editYear').addClass("is-invalid");
+    }
+    if($('#editPrice').val() == "") {
+        $('#editPrice').addClass("is-invalid");
+    }
+    if($('#editColor').val() == "") {
+        $('#editColor').addClass("is-invalid");
+    }
+    if($('#editMileage').val() == "") {
+        $('#editMileage').addClass("is-invalid");
+    }
+    if($('#editType').val() == "") {
+        $('#editType').addClass("is-invalid");
+    }
+    if($('#editTransmission').val() == "") {
+        $('#editTransmission').addClass("is-invalid");
+    }
+    if($('#editDrivetrain').val() == "") {
+        $('#editDrivetrain').addClass("is-invalid");
+    }
+
+    // Add the 'id' to the editObject.
+    editObject.id = id;
+
+    // Determine which data has changed and add that to the editObject to be passed
+    // to the ajax PUT method.
+    if($('#editMake').val() != currentData.make) {
+        editObject.make = $('#editMake').val();
+    }
+    if($('#editModel').val() != currentData.model) {
+        editObject.model = $('#editModel').val();
+    }
+    if($('#editYear').val() != currentData.year) {
+        editObject.year = $('#editYear').val();
+    }
+    if($('#editPrice').val() != currentData.price) {
+        editObject.price = $('#editPrice').val();
+    }
+    if($('#editColor').val() != currentData.color) {
+        editObject.color = $('#editColor').val();
+    }
+    if($('#editMileage').val() != currentData.mileage) {
+        editObject.mileage = $('#editMileage').val();
+    }
+    if($('#editType').val() != currentData.type) {
+        editObject.type = $('#editType').val();
+    }
+    if($('#editTransmission').val() != currentData.transmission) {
+        editObject.transmission = $('#editTransmission').val();
+    }
+    if($('#editDrivetrain').val() != currentData.drive) {
+        editObject.drive = $('#editDrivetrain').val();
+    }
+
+    // Check that data has been changed before running the ajax PUT request.
+    if(!$.isEmptyObject(editObject)) {
+
+        // Submit the data the the ajax post method.
+        put();
+
+        // Update the search form's select dropdowns.
+        window.setTimeout(reloadSelectDropdowns, TIMER_DELAY);
+
+        // Update the table.
+        window.setTimeout(get, TIMER_DELAY);
+    }
+
+    // Close the modal from.
+    $('#editVehicalModal').modal('hide');
+
+});
+/************************************ END *************************************/
 
 /********************** Search form - Clear button event ***********************/
 $('#clearBtn').click(function(event) {
@@ -383,6 +498,8 @@ function get() {
         method: 'GET',
         data: getObject,
         success: function(data) {
+            // Log a message apon success.
+            console.log("Items received from inventory.");
 
             // Clear the current table.
             $('tbody').empty();
@@ -403,6 +520,11 @@ function get() {
                     
                 );
             })
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // Log any error messages.
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }
@@ -421,13 +543,48 @@ function post() {
         method: 'POST',
         data: postObject,
         success: function() {
+            // Log a message apon success.
+            console.log("Item added to inventory.");
+
             // Reload the search from's select dropdowns and the table body.
             reloadSelectDropdowns();
             get();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // Log any error messages.
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }
 /************************************ END *************************************/
+
+function put() {
+
+    // Create a url for the ajax request.
+    $.each(editObject, function(index, value) {
+        if(index == 'id') {
+            url += index+"="+value;
+        } else {
+            url += "&"+index+"="+value;
+        }
+    });
+
+    $.ajax({
+        url: 'api/inventory/?'+url,
+        method: 'PUT',
+        data: editObject,
+        success: function() {
+            // Log a message apon success.
+            console.log("Item updated in inventory.");
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // Log any error messages.
+            console.log(xhr.status);
+            console.log(thrownError);
+        }
+    });
+}
 
 /**************************************************************************
 * Purpose: This function handles ajax delete request. It takes the id for *
@@ -442,9 +599,17 @@ function deleteVehical(id) {
         url: 'api/inventory/?id='+id,
         method: 'DELETE',
         success: function() {
+            // Log a message apon success.
+            console.log("Item deleted from inventory.");
+
             // Reload the search from's select dropdowns and the table body.
             reloadSelectDropdowns();
             get();
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // Log any error messages.
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }
@@ -469,6 +634,11 @@ function getDistinctMake() {
             $.each(data, function(index, value) {
                 $('#selectMake').append("<option value=\""+value.make+"\">"+value.make+"</option>");
             });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // Log any error messages.
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }
@@ -493,6 +663,11 @@ function getDistinctColor() {
             $.each(data, function(index, value) {
                 $('#selectColor').append("<option value=\""+value.color+"\">"+value.color+"</option>");
             });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // Log any error messages.
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }
@@ -517,6 +692,11 @@ function getDistinctType() {
             $.each(data, function(index, value) {
                 $('#selectType').append("<option value=\""+value.type+"\">"+value.type+"</option>");
             });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // Log any error messages.
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }
@@ -541,6 +721,11 @@ function getDistinctTransmission() {
             $.each(data, function(index, value) {
                 $('#selectTransmission').append("<option value=\""+value.transmission+"\">"+value.transmission+"</option>");
             });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // Log any error messages.
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }
@@ -561,10 +746,15 @@ function getDistinctDrivetrain() {
         method: 'GET',
         data: {distinctDrivetrain: '1'},
         success: function(data) {
-            // Fill the 'drive' dropdown with results.
+            // Fill the 'drivetrain' dropdown with results.
             $.each(data, function(index, value) {
                 $('#selectDrivetrain').append("<option value=\""+value.drive+"\">"+value.drive+"</option>");
             });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            // Log any error messages.
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }

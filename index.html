@@ -152,6 +152,114 @@
         </div>
     </div>
 
+    <!-- Edit a vehical modal -->
+    <div class="modal fade" id="editVehicalModal" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Edit vehical</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal form -->
+                <div class="modal-body">
+                    <form>
+                        <!-- Make -->
+                        <div class="form-group">
+                            <label for="editMake">Make</label>
+                            <input id="editMake" type="text" class="form-control">
+                            <div class="invalid-feedback">
+                                Please add a make.
+                            </div>
+                        </div>
+
+                        <!-- Model -->
+                        <div class="form-group">
+                            <label for="editModel">Model</label>
+                            <input id="editModel" type="text" class="form-control">
+                            <div class="invalid-feedback">
+                                Please add a model.
+                            </div>
+                        </div>
+
+                        <!-- Year -->
+                        <div class="form-group">
+                            <label for="editYear">Year</label>
+                            <input id="editYear" type="text" class="form-control">
+                            <small class="form-text text-muted">Please use a four digit year. Ex. 1990, 2010.</small>
+                            <div class="invalid-feedback">
+                                Please add a year.
+                            </div>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="form-group">
+                            <label for="editPrice">Price</label>
+                            <input id="editPrice" type="text" class="form-control">
+                            <div class="invalid-feedback">
+                                Please add a price.
+                            </div>
+                        </div>
+
+                        <!-- Color -->
+                        <div class="form-group">
+                            <label for="editColor">Color</label>
+                            <input id="editColor" type="text" class="form-control">
+                            <div class="invalid-feedback">
+                                Please add a color.
+                            </div>
+                        </div>
+
+                        <!-- Mileage -->
+                        <div class="form-group">
+                            <label for="editMileage">Mileage</label>
+                            <input id="editMileage" type="text" class="form-control">
+                            <div class="invalid-feedback">
+                                Please add the current mileage.
+                            </div>
+                        </div>
+
+                        <!-- Type -->
+                        <div class="form-group">
+                            <label for="editType">Vehical Type</label>
+                            <input id="editType" type="text" class="form-control">
+                            <div class="invalid-feedback">
+                                Please add a vehical type.
+                            </div>
+                        </div>
+
+                        <!-- Transmission -->
+                        <div class="form-group">
+                            <label for="editTransmission">Transmission</label>
+                            <input id="editTransmission" type="text" class="form-control">
+                            <div class="invalid-feedback">
+                                Please add a transmission type.
+                            </div>
+                        </div>
+
+                        <!-- Drivetrain -->
+                        <div class="form-group">
+                            <label for="editDrivetrain">Drivetrain</label>
+                            <input id="editDrivetrain" type="text" class="form-control">
+                            <small class="form-text text-muted">Ex. Fwd, Rwd, Awd, 4wd.</small>
+                            <div class="invalid-feedback">
+                                Please add a drivetrain.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        
+                <!-- Modal buttons -->
+                <div class="modal-footer">
+                    <button type="button" id="editVehicalModalSubmit" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Delete a vehical modal -->
     <div class="modal fade" id="deleteVehicalModal" data-backdrop="static">
         <div class="modal-dialog">
