@@ -9,7 +9,20 @@ var currentData = {};
 
 // Variable to store the selected table row's key id value.
 var id;
+
+// Variable to hold the created url to be used by ajax.
 var url = "";
+
+// Booleans to handle the ORDER BY functionality of the table.
+var orderByMakeFlag = 1;
+var orderByModelFlag = 1;
+var orderByYearFlag = 1;
+var orderByPriceFlag = 1;
+var orderByColorFlag = 1;
+var orderByMileageFlag = 1;
+var orderByTypeFlag = 1;
+var orderByTransmissionFlag = 1;
+var orderByDriveFlag = 1;
 
 /*********************** Add new vehical - Button event ***********************/
 $('#addNewVehical').click(function() {
@@ -482,6 +495,155 @@ $('#searchBtn').click(function(event) {
     get();
 });
 /************************************ END *************************************/
+
+/************************ ORDER BY table header buttons ************************
+*  Purpose: The following click events handle the ORDER BY functionality of    *
+*           the table header buttons.                                          *
+*******************************************************************************/
+
+// Order by make.
+$('#orderByMake').click(function() {
+
+    // Toggle the boolean.
+    orderByMakeFlag ^= 1;
+
+    // Add the ORDER BY critiria to the GET object for ajax.
+    getObject.orderByMake = orderByMakeFlag;
+
+    // Reload the table.
+    get();
+
+    // Clear the getObject.
+    getObject = {};
+});
+
+// Order by model.
+$('#orderByModel').click(function() {
+
+    // Toggle the boolean.
+    orderByModelFlag ^= 1;
+
+    // Add the ORDER BY critiria to the GET object for ajax.
+    getObject.orderByModel = orderByModelFlag;
+
+    // Reload the table.
+    get();
+
+    // Clear the getObject.
+    getObject = {};
+});
+
+// Order by year.
+$('#orderByYear').click(function() {
+
+    // Toggle the boolean.
+    orderByYearFlag ^= 1;
+
+    // Add the ORDER BY critiria to the GET object for ajax.
+    getObject.orderByYear = orderByYearFlag;
+
+    // Reload the table.
+    get();
+
+    // Clear the getObject.
+    getObject = {};
+});
+
+// Order by price.
+$('#orderByPrice').click(function() {
+
+    // Toggle the boolean.
+    orderByPriceFlag ^= 1;
+
+    // Add the ORDER BY critiria to the GET object for ajax.
+    getObject.orderByPrice = orderByPriceFlag;
+
+    // Reload the table.
+    get();
+
+    // Clear the getObject.
+    getObject = {};
+});
+
+// Order by color.
+$('#orderByColor').click(function() {
+
+    // Toggle the boolean.
+    orderByColorFlag ^= 1;
+
+    // Add the ORDER BY critiria to the GET object for ajax.
+    getObject.orderByColor = orderByColorFlag;
+
+    // Reload the table.
+    get();
+
+    // Clear the getObject.
+    getObject = {};
+});
+
+// Order by mileage.
+$('#orderByMileage').click(function() {
+
+    // Toggle the boolean.
+    orderByMileageFlag ^= 1;
+
+    // Add the ORDER BY critiria to the GET object for ajax.
+    getObject.orderByMileage = orderByMileageFlag;
+
+    // Reload the table.
+    get();
+
+    // Clear the getObject.
+    getObject = {};
+});
+
+// Order by type.
+$('#orderByType').click(function() {
+
+    // Toggle the boolean.
+    orderByTypeFlag ^= 1;
+
+    // Add the ORDER BY critiria to the GET object for ajax.
+    getObject.orderByType = orderByTypeFlag;
+
+    // Reload the table.
+    get();
+
+    // Clear the getObject.
+    getObject = {};
+});
+
+// Order by transmission.
+$('#orderByTransmission').click(function() {
+
+    // Toggle the boolean.
+    orderByTransmissionFlag ^= 1;
+
+    // Add the ORDER BY critiria to the GET object for ajax.
+    getObject.orderByTransmission = orderByTransmissionFlag;
+
+    // Reload the table.
+    get();
+
+    // Clear the getObject.
+    getObject = {};
+});
+
+// Order by drive.
+$('#orderByDrive').click(function() {
+
+    // Toggle the boolean.
+    orderByDriveFlag ^= 1;
+
+    // Add the ORDER BY critiria to the GET object for ajax.
+    getObject.orderByDrive = orderByDriveFlag;
+
+    // Reload the table.
+    get();
+
+    // Clear the getObject.
+    getObject = {};
+});
 
 /**************************************************************************
 * Purpose: This function handles all ajax get request. Upon success,      *
