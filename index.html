@@ -44,14 +44,14 @@
         </div>
     </nav>
 
-    <!-- Add a new vehical modal -->
-    <div class="modal fade" id="newVehicalModal" data-backdrop="static">
+    <!-- Add a new vehicle modal -->
+    <div class="modal fade" id="newVehicleModal" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
         
                 <!-- Modal header -->
                 <div class="modal-header">
-                <h4 class="modal-title">Add a vehical</h4>
+                <h4 class="modal-title">Add a vehicle</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
         
@@ -115,10 +115,10 @@
 
                         <!-- Type -->
                         <div class="form-group">
-                            <label for="addNewType">Vehical Type</label>
+                            <label for="addNewType">Vehicle Type</label>
                             <input id="addNewType" type="text" class="form-control">
                             <div class="invalid-feedback">
-                                Please add a vehical type.
+                                Please add a vehicle type.
                             </div>
                         </div>
 
@@ -145,21 +145,21 @@
         
                 <!-- Modal buttons -->
                 <div class="modal-footer">
-                    <button type="button" id="addVehicalModalSubmit" class="btn btn-success">Add</button>
+                    <button type="button" id="addVehicleModalSubmit" class="btn btn-success">Add</button>
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Edit a vehical modal -->
-    <div class="modal fade" id="editVehicalModal" data-backdrop="static">
+    <!-- Edit a vehicle modal -->
+    <div class="modal fade" id="editVehicleModal" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
         
                 <!-- Modal header -->
                 <div class="modal-header">
-                <h4 class="modal-title">Edit vehical</h4>
+                <h4 class="modal-title">Edit vehicle</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
         
@@ -223,10 +223,10 @@
 
                         <!-- Type -->
                         <div class="form-group">
-                            <label for="editType">Vehical Type</label>
+                            <label for="editType">Vehicle Type</label>
                             <input id="editType" type="text" class="form-control">
                             <div class="invalid-feedback">
-                                Please add a vehical type.
+                                Please add a vehicle type.
                             </div>
                         </div>
 
@@ -253,21 +253,21 @@
         
                 <!-- Modal buttons -->
                 <div class="modal-footer">
-                    <button type="button" id="editVehicalModalSubmit" class="btn btn-primary">Edit</button>
+                    <button type="button" id="editVehicleModalSubmit" class="btn btn-primary">Edit</button>
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Delete a vehical modal -->
-    <div class="modal fade" id="deleteVehicalModal" data-backdrop="static">
+    <!-- Delete a vehicle modal -->
+    <div class="modal fade" id="deleteVehicleModal" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <!-- Modal header -->
                 <div class="modal-header">
-                    <h5 class="modal-title">Delete vehical</h5>
+                    <h5 class="modal-title">Delete vehicle</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -275,13 +275,13 @@
 
                   <!-- Modal body -->
                   <div class="modal-body">
-                    <p>Are you sure you want to delete this vehical from the inventory?</p>
+                    <p>Are you sure you want to delete this vehicle from the inventory?</p>
                     <h5 id="deleteModalMessage"></h5>
                   </div>
 
                   <!-- Modal buttons -->
                   <div class="modal-footer">
-                    <button type="button" id="deleteVehicalModalSubmit" class="btn btn-danger">Delete</button>
+                    <button type="button" id="deleteVehicleModalSubmit" class="btn btn-danger">Delete</button>
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
                   </div>
             </div>
@@ -293,9 +293,9 @@
         <div id="sideBar" class="row">
             <div class="col-2 bg-light pb-3">
 
-                <!-- Add a new vehical -->
-                <h4 class="text-center">Add Vehical</h4>
-                <button type="button" id="addNewVehical" class="btn btn-block btn-success" data-toggle="modal" data-target="#newVehicalModal"><i class="fas fa-plus"></i></button>
+                <!-- Add a new vehicle -->
+                <h4 class="text-center">Add Vehicle</h4>
+                <button type="button" id="addNewVehicle" class="btn btn-block btn-success" data-toggle="modal" data-target="#newVehicleModal"><i class="fas fa-plus"></i></button>
                 <hr>
                 <!-- Sidebar search form -->
                 <form>
@@ -364,7 +364,7 @@
 
                     <!-- Type -->
                     <div class="form-group">
-                        <label for="selectType">Vehical Type</label>
+                        <label for="selectType">Vehicle Type</label>
                         <select id="selectType" name="type" class="form-control">
                             <option value="All">All</option>
                         </select>

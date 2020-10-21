@@ -24,8 +24,8 @@ var orderByTypeFlag = 1;
 var orderByTransmissionFlag = 1;
 var orderByDriveFlag = 1;
 
-/*********************** Add new vehical - Button event ***********************/
-$('#addNewVehical').click(function() {
+/*********************** Add new vehicle - Button event ***********************/
+$('#addNewVehicle').click(function() {
 
     // Clear any existing form data.
     $('#addNewMake')[0].value = "";
@@ -51,8 +51,8 @@ $('#addNewVehical').click(function() {
 });
 /************************************ END *************************************/
 
-/****************** Add vehical modal - Submit button event *******************/
-$('#addVehicalModalSubmit').click(function(event) {
+/****************** Add vehicle modal - Submit button event *******************/
+$('#addVehicleModalSubmit').click(function(event) {
 
     // Prevent the defualt form behavior.
     event.preventDefault();
@@ -110,12 +110,12 @@ $('#addVehicalModalSubmit').click(function(event) {
         window.setTimeout(get, TIMER_DELAY);
 
         // Close the modal from.
-        $('#newVehicalModal').modal('hide');
+        $('#newVehicleModal').modal('hide');
     }
 });
 /************************************ END *************************************/
 
-/************** Add new vehical modal - Form validation functions **************
+/************** Add new vehicle modal - Form validation functions **************
 *  Purpose: For each of the form's inputs, on keyup, check that data has been  *
 *           entered. If data exist, remove the invalid Bootstrap class from    *
 *           the input.                                                         *
@@ -163,7 +163,7 @@ $('#addNewMileage').keyup(function() {
     }
 });
 
-// Vehical type.
+// Vehicle type.
 $('#addNewType').keyup(function() {
     if($('#addNewType').val() != "") {
         $('#addNewType').removeClass("is-invalid");
@@ -186,7 +186,7 @@ $('#addNewDrivetrain').keyup(function() {
 /************************************ END *************************************/
 
 /**************************************************************************
-* Purpose: This function builds the delete vehical modal. It creates the  *
+* Purpose: This function builds the delete vehicle modal. It creates the  *
 *          'Are you sure' message and adds an click event to the submit   *
 *          button. The click event passes the id for the row to the ajax  *
 *          delete method.                                                 *
@@ -206,13 +206,13 @@ function deleteRow(row) {
 /************************************ END *************************************/
 
 /********************* Delete modal - Delete button event *********************/
-$('#deleteVehicalModalSubmit').click(function() {
+$('#deleteVehicleModalSubmit').click(function() {
 
     // Call the delete ajax function, pass in the row's id.
-    deleteVehical(id);
+    deleteVehicle(id);
 
     // Close the modal from.
-    $('#deleteVehicalModal').modal('hide');
+    $('#deleteVehicleModal').modal('hide');
 
     // Update the search form's select dropdowns.
     window.setTimeout(reloadSelectDropdowns, TIMER_DELAY);
@@ -251,8 +251,8 @@ function editRow(row) {
 }
 /************************************ END *************************************/
 
-/****************** Add vehical modal - Submit button event *******************/
-$('#editVehicalModalSubmit').click(function(event) {
+/****************** Add vehicle modal - Submit button event *******************/
+$('#editVehicleModalSubmit').click(function(event) {
 
     // Prevent the defualt form behavior.
     event.preventDefault();
@@ -333,7 +333,7 @@ $('#editVehicalModalSubmit').click(function(event) {
     }
 
     // Close the modal from.
-    $('#editVehicalModal').modal('hide');
+    $('#editVehicleModal').modal('hide');
 
 });
 /************************************ END *************************************/
@@ -395,7 +395,7 @@ $('#searchBtn').click(function(event) {
         getObject.color = $('#selectColor')[0].value;
     }
 
-    // Check if a 'vehical type' was selected.
+    // Check if a 'vehicle type' was selected.
     if($('#selectType')[0].value == 'undefined') {
         console.log("Undefined");
     } else if($('#selectType')[0].value == 'All') {
@@ -678,7 +678,7 @@ function get() {
                     .append($('<td>').text(value.type))
                     .append($('<td>').text(value.transmission))
                     .append($('<td>').text(value.drive))
-                    .append($('<td><div class=\"d-flex\"><button id=\"editBtn\" class=\"mx-2 btn btn-sm btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editVehicalModal\" onclick=\"editRow(this)\"><i class=\"fas fa-pencil-alt\"></i></span></button><button id=\"deleteBtn\" class=\"mx-2 btn btn-sm btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteVehicalModal\" onclick=\"deleteRow(this)\"><i class=\"fas fa-trash-alt\"></i></span></button></div></td>'))
+                    .append($('<td><div class=\"d-flex\"><button id=\"editBtn\" class=\"mx-2 btn btn-sm btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editVehicleModal\" onclick=\"editRow(this)\"><i class=\"fas fa-pencil-alt\"></i></span></button><button id=\"deleteBtn\" class=\"mx-2 btn btn-sm btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteVehicleModal\" onclick=\"deleteRow(this)\"><i class=\"fas fa-trash-alt\"></i></span></button></div></td>'))
                     
                 );
             })
@@ -756,7 +756,7 @@ function put() {
 *                                                                         *
 * Output:  None.                                                          *
 **************************************************************************/
-function deleteVehical(id) {
+function deleteVehicle(id) {
     $.ajax({
         url: 'api/inventory/?id='+id,
         method: 'DELETE',
@@ -778,13 +778,13 @@ function deleteVehical(id) {
 /************************************ END *************************************/
 
 /**************************************************************************
-* Purpose: This function handles the ajax get request for unique vehical  *
+* Purpose: This function handles the ajax get request for unique vehicle  *
 *          makes. The returned data is used to build the search form's    *
-*          select dropdown for vehical makes.                             *
+*          select dropdown for vehicle makes.                             *
 *                                                                         *
 * Inputs:  None.                                                          *
 *                                                                         *
-* Output:  Builds the search form's dropdown for vehical makes.           *
+* Output:  Builds the search form's dropdown for vehicle makes.           *
 **************************************************************************/
 function getDistinctMake() {
     $.ajax({
@@ -807,13 +807,13 @@ function getDistinctMake() {
 /************************************ END *************************************/
 
 /**************************************************************************
-* Purpose: This function handles the ajax get request for unique vehical  *
+* Purpose: This function handles the ajax get request for unique vehicle  *
 *          models. The returned data is used to build the search form's   *
-*          select dropdown for vehical models.                            *
+*          select dropdown for vehicle models.                            *
 *                                                                         *
 * Inputs:  None.                                                          *
 *                                                                         *
-* Output:  Builds the search form's dropdown for vehical models.          *
+* Output:  Builds the search form's dropdown for vehicle models.          *
 **************************************************************************/
 function getDistinctColor() {
     $.ajax({
@@ -836,13 +836,13 @@ function getDistinctColor() {
 /************************************ END *************************************/
 
 /**************************************************************************
-* Purpose: This function handles the ajax get request for unique vehical  *
+* Purpose: This function handles the ajax get request for unique vehicle  *
 *          types. The returned data is used to build the search form's    *
-*          select dropdown for vehical types.                             *
+*          select dropdown for vehicle types.                             *
 *                                                                         *
 * Inputs:  None.                                                          *
 *                                                                         *
-* Output:  Builds the search form's dropdown for vehical types.           *
+* Output:  Builds the search form's dropdown for vehicle types.           *
 **************************************************************************/
 function getDistinctType() {
     $.ajax({
@@ -865,13 +865,13 @@ function getDistinctType() {
 /************************************ END *************************************/
 
 /**************************************************************************
-* Purpose: This function handles the ajax get request for unique vehical  *
+* Purpose: This function handles the ajax get request for unique vehicle  *
 *          transmissions. The returned data is used to build the search   *
-*          form's select dropdown for vehical transmissions.              *
+*          form's select dropdown for vehicle transmissions.              *
 *                                                                         *
 * Inputs:  None.                                                          *
 *                                                                         *
-* Output:  Builds the search form's dropdown for vehical transmissions.   *
+* Output:  Builds the search form's dropdown for vehicle transmissions.   *
 **************************************************************************/
 function getDistinctTransmission() {
     $.ajax({
@@ -894,13 +894,13 @@ function getDistinctTransmission() {
 /************************************ END *************************************/
 
 /**************************************************************************
-* Purpose: This function handles the ajax get request for unique vehical  *
+* Purpose: This function handles the ajax get request for unique vehicle  *
 *          drivetrains. The returned data is used to build the search     *
-*          form's select dropdown for vehical drivetrains.                *
+*          form's select dropdown for vehicle drivetrains.                *
 *                                                                         *
 * Inputs:  None.                                                          *
 *                                                                         *
-* Output:  Builds the search form's dropdown for vehical drivetrains.     *
+* Output:  Builds the search form's dropdown for vehicle drivetrains.     *
 **************************************************************************/
 function getDistinctDrivetrain() {
     $.ajax({
