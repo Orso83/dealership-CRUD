@@ -251,7 +251,7 @@ function editRow(row) {
 }
 /************************************ END *************************************/
 
-/****************** Add vehicle modal - Submit button event *******************/
+/****************** Edit vehicle modal - Submit button event *******************/
 $('#editVehicleModalSubmit').click(function(event) {
 
     // Prevent the defualt form behavior.
@@ -324,12 +324,6 @@ $('#editVehicleModalSubmit').click(function(event) {
 
         // Submit the data the the ajax post method.
         put();
-
-        // Update the search form's select dropdowns.
-        window.setTimeout(reloadSelectDropdowns, TIMER_DELAY);
-
-        // Update the table.
-        window.setTimeout(get, TIMER_DELAY);
     }
 
     // Close the modal from.
@@ -721,6 +715,14 @@ function post() {
 }
 /************************************ END *************************************/
 
+/**************************************************************************
+* Purpose: This function handles ajax put request. It takes the id for    *
+*          the row that will be updated.                                  *
+*                                                                         *
+* Inputs:  Id.                                                            *
+*                                                                         *
+* Output:  None.                                                          *
+**************************************************************************/
 function put() {
 
     // Create a url for the ajax request.
@@ -739,6 +741,10 @@ function put() {
         success: function() {
             // Log a message apon success.
             console.log("Item updated in inventory.");
+
+            // Reload the search from's select dropdowns and the table body.
+            reloadSelectDropdowns();
+            get();
         },
         error: function (xhr, ajaxOptions, thrownError) {
             // Log any error messages.
@@ -747,6 +753,7 @@ function put() {
         }
     });
 }
+/************************************ END *************************************/
 
 /**************************************************************************
 * Purpose: This function handles ajax delete request. It takes the id for *
