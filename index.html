@@ -20,7 +20,7 @@
         <div class="container">
 
           <!-- Brand -->
-          <a class="navbar-brand" href="#">Car Dealership CRUD</a>
+          <a class="navbar-brand" href="#">Automotive Dealership CRUD</a>
 
           <!-- Toggler/collapsibe Button -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -152,7 +152,10 @@
                         <!-- Transmission -->
                         <div class="form-group">
                             <label for="addNewTransmission">Transmission</label>
-                            <input id="addNewTransmission" type="text" class="form-control">
+                            <select id="addNewTransmission" name="transmission" class="form-control">
+                                <option value="Automatic" selected>Automatic</option>
+                                <option value="Manual">Manual</option>
+                            </select>
                             <div class="invalid-feedback">
                                 Please add a transmission type.
                             </div>
@@ -161,8 +164,12 @@
                         <!-- Drivetrain -->
                         <div class="form-group">
                             <label for="addNewDrivetrain">Drivetrain</label>
-                            <input id="addNewDrivetrain" type="text" class="form-control">
-                            <small class="form-text text-muted">Drivetrain must not be longer than three characters. Ex. Fwd, Rwd, Awd, 4wd.</small>
+                            <select id="addNewDrivetrain" name="drive" class="form-control">
+                                <option value="Fwd" selected>Fwd</option>
+                                <option value="Rwd">Rwd</option>
+                                <option value="Awd">Awd</option>
+                                <option value="4wd">4wd</option>
+                            </select>
                             <div class="invalid-feedback">
                                 Please add a drivetrain.
                             </div>
@@ -260,7 +267,10 @@
                         <!-- Transmission -->
                         <div class="form-group">
                             <label for="editTransmission">Transmission</label>
-                            <input id="editTransmission" type="text" class="form-control">
+                            <select id="editTransmission" name="transmission" class="form-control">
+                                <option value="Automatic">Automatic</option>
+                                <option value="Manual">Manual</option>
+                            </select>
                             <div class="invalid-feedback">
                                 Please add a transmission type.
                             </div>
@@ -269,8 +279,12 @@
                         <!-- Drivetrain -->
                         <div class="form-group">
                             <label for="editDrivetrain">Drivetrain</label>
-                            <input id="editDrivetrain" type="text" class="form-control">
-                            <small class="form-text text-muted">Drivetrain must not be longer than three characters. Ex. Fwd, Rwd, Awd, 4wd.</small>
+                            <select id="editDrivetrain" name="drive" class="form-control">
+                                <option value="Fwd">Fwd</option>
+                                <option value="Rwd">Rwd</option>
+                                <option value="Awd">Awd</option>
+                                <option value="4wd">4wd</option>
+                            </select>
                             <div class="invalid-feedback">
                                 Please add a drivetrain.
                             </div>

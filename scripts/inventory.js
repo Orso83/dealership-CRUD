@@ -91,12 +91,12 @@ $('#addVehicleModalSubmit').click(function(event) {
     if($('#addNewDrivetrain').val() == "") {
         $('#addNewDrivetrain').addClass("is-invalid");
     }
-    if($('#addNewDrivetrain').val().length > 3) {
+    if($('#addNewDrivetrain').val() == "") {
         $('#addNewDrivetrain').addClass("is-invalid");
     }
 
     // If the form is completely filled out, submit it.
-    if($('#addNewMake').val() != "" && $('#addNewModel').val() != "" && $('#addNewYear').val() != "" && $('#addNewPrice').val() != "" && $('#addNewColor').val() != "" && $('#addNewMileage').val() != "" && $('#addNewType').val() != "" && $('#addNewTransmission').val() != "" && $('#addNewDrivetrain').val() != "" && $('#addNewDrivetrain').val().length < 4) {
+    if($('#addNewMake').val() != "" && $('#addNewModel').val() != "" && $('#addNewYear').val() != "" && $('#addNewPrice').val() != "" && $('#addNewColor').val() != "" && $('#addNewMileage').val() != "" && $('#addNewType').val() != "" && $('#addNewTransmission').val() != "" && $('#addNewDrivetrain').val() != "") {
 
         // Add the data to the JS object.
         postObject.make = $('#addNewMake').val();
