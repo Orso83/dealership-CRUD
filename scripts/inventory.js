@@ -1,6 +1,3 @@
-// Constants
-const TIMER_DELAY = 1000;
-
 // Empty objects to fill with form data used in the ajax request.
 var getObject = {};
 var postObject = {};
@@ -110,19 +107,13 @@ $('#addVehicleModalSubmit').click(function(event) {
         // Submit the data the the ajax post method.
         post();
 
-        // Update the search form's select dropdowns.
-        window.setTimeout(reloadSelectDropdowns, TIMER_DELAY);
-
-        // Update the table.
-        window.setTimeout(get, TIMER_DELAY);
-
         // Close the modal from.
         $('#newVehicleModal').modal('hide');
     }
 });
 /************************************ END *************************************/
 
-/**************** Edit vehicle modal - Form validation functions ***************
+/************** Add new vehicle modal - Form validation functions **************
 *  Purpose: For each of the form's inputs, on keyup, check that data has been  *
 *           entered. If data exist, remove the invalid Bootstrap class from    *
 *           the input.                                                         *
@@ -220,12 +211,6 @@ $('#deleteVehicleModalSubmit').click(function() {
 
     // Close the modal from.
     $('#deleteVehicleModal').modal('hide');
-
-    // Update the search form's select dropdowns.
-    window.setTimeout(reloadSelectDropdowns, TIMER_DELAY);
-
-    // Update the table.
-    window.setTimeout(get, TIMER_DELAY);
 });
 /************************************ END *************************************/
 
@@ -280,7 +265,7 @@ function editRow(row) {
 }
 /************************************ END *************************************/
 
-/************** Add new vehicle modal - Form validation functions **************
+/*************** Edit vehicle modal - Form validation functions ****************
 *  Purpose: For each of the form's inputs, on keyup, check that data has been  *
 *           entered. If data exist, remove the invalid Bootstrap class from    *
 *           the input.                                                         *
