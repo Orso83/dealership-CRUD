@@ -41,8 +41,6 @@ $('#addNewVehicle').click(function() {
     $('#addNewColor')[0].value = "";
     $('#addNewMileage')[0].value = "";
     $('#addNewType')[0].value = "";
-    $('#addNewTransmission')[0].value = "";
-    $('#addNewDrivetrain')[0].value = "";
 
     // Clear any invalid warnings.
     $('#addNewMake').removeClass("is-invalid");
@@ -70,7 +68,7 @@ $('#addVehicleModalSubmit').click(function(event) {
     if($('#addNewModel').val() == "") {
         $('#addNewModel').addClass("is-invalid");
     }
-    if($('#addNewYear').val() == "") {
+    if($('#addNewYear').val().length != 4) {
         $('#addNewYear').addClass("is-invalid");
     }
     if($('#addNewPrice').val() == "") {
@@ -96,7 +94,7 @@ $('#addVehicleModalSubmit').click(function(event) {
     }
 
     // If the form is completely filled out, submit it.
-    if($('#addNewMake').val() != "" && $('#addNewModel').val() != "" && $('#addNewYear').val() != "" && $('#addNewPrice').val() != "" && $('#addNewColor').val() != "" && $('#addNewMileage').val() != "" && $('#addNewType').val() != "" && $('#addNewTransmission').val() != "" && $('#addNewDrivetrain').val() != "") {
+    if($('#addNewMake').val() != "" && $('#addNewModel').val() != "" && $('#addNewYear').val().length == 4 && $('#addNewPrice').val() != "" && $('#addNewColor').val() != "" && $('#addNewMileage').val() != "" && $('#addNewType').val() != "" && $('#addNewTransmission').val() != "" && $('#addNewDrivetrain').val() != "") {
 
         // Add the data to the JS object.
         postObject.make = $('#addNewMake').val();
@@ -124,7 +122,7 @@ $('#addVehicleModalSubmit').click(function(event) {
 });
 /************************************ END *************************************/
 
-/************** Add new vehicle modal - Form validation functions **************
+/**************** Edit vehicle modal - Form validation functions ***************
 *  Purpose: For each of the form's inputs, on keyup, check that data has been  *
 *           entered. If data exist, remove the invalid Bootstrap class from    *
 *           the input.                                                         *
@@ -146,7 +144,7 @@ $('#addNewModel').keyup(function() {
 
 // Year.
 $('#addNewYear').keyup(function() {
-    if($('#addNewYear').val() != "") {
+    if($('#addNewYear').val().length == 4) {
         $('#addNewYear').removeClass("is-invalid");
     }
 });
@@ -231,7 +229,29 @@ $('#deleteVehicleModalSubmit').click(function() {
 });
 /************************************ END *************************************/
 
+/**************************************************************************
+* Purpose: This function takes the data from the selected row and         *
+*          populates the 'edit' modal form with the current data. It also *
+*          takes the 'id' for the selected row and stores it in the 'id'  *
+*          variable. The current data is then stored in the 'currentData' *
+*          object that is used to compair new data against.               *
+*                                                                         *
+* Inputs:  Id for the item that has been selected for deletion.           *
+*                                                                         *
+* Output:  None.                                                          *
+**************************************************************************/
 function editRow(row) {
+
+    // Clear any invalid warnings.
+    $('#editMake').removeClass("is-invalid");
+    $('#editModel').removeClass("is-invalid");
+    $('#editYear').removeClass("is-invalid");
+    $('#editPrice').removeClass("is-invalid");
+    $('#editColor').removeClass("is-invalid");
+    $('#editMileage').removeClass("is-invalid");
+    $('#editType').removeClass("is-invalid");
+    $('#editTransmission').removeClass("is-invalid");
+    $('#editDrivetrain').removeClass("is-invalid");
 
     // Fill the form with the current data from the selected row.
     $('#editMake').val($(row).closest('tr')[0].cells[0].innerText);
@@ -260,6 +280,76 @@ function editRow(row) {
 }
 /************************************ END *************************************/
 
+/************** Add new vehicle modal - Form validation functions **************
+*  Purpose: For each of the form's inputs, on keyup, check that data has been  *
+*           entered. If data exist, remove the invalid Bootstrap class from    *
+*           the input.                                                         *
+*******************************************************************************/
+
+// Make.
+$('#editMake').keyup(function() {
+    if($('#editMake').val() != "") {
+        $('#editMake').removeClass("is-invalid");
+    }
+});
+
+// Model.
+$('#editModel').keyup(function() {
+    if($('#editModel').val() != "") {
+        $('#editModel').removeClass("is-invalid");
+    }
+});
+
+// Year.
+$('#editYear').keyup(function() {
+    if($('#editYear').val().length != 4) {
+        $('#editYear').removeClass("is-invalid");
+    }
+});
+
+// Price.
+$('#editPrice').keyup(function() {
+    if($('#editPrice').val() != "") {
+        $('#editPrice').removeClass("is-invalid");
+    }
+});
+
+// Color.
+$('#editColor').keyup(function() {
+    if($('#editColor').val() != "") {
+        $('#editColor').removeClass("is-invalid");
+    }
+});
+
+// Mileage.
+$('#editMileage').keyup(function() {
+    if($('#editMileage').val() != "") {
+        $('#editMileage').removeClass("is-invalid");
+    }
+});
+
+// Vehicle type.
+$('#editType').keyup(function() {
+    if($('#editType').val() != "") {
+        $('#editType').removeClass("is-invalid");
+    }
+});
+
+// Transmission.
+$('#editTransmission').keyup(function() {
+    if($('#editTransmission').val() != "") {
+        $('#editTransmission').removeClass("is-invalid");
+    }
+});
+
+// Drivetrain.
+$('#editDrivetrain').keyup(function() {
+    if($('#editDrivetrain').val() != "") {
+        $('#editDrivetrain').removeClass("is-invalid");
+    }
+});
+/************************************ END *************************************/
+
 /****************** Edit vehicle modal - Submit button event *******************/
 $('#editVehicleModalSubmit').click(function(event) {
 
@@ -273,7 +363,7 @@ $('#editVehicleModalSubmit').click(function(event) {
     if($('#editModel').val() == "") {
         $('#editModel').addClass("is-invalid");
     }
-    if($('#editYear').val() == "") {
+    if($('#editYear').val().length != 4) {
         $('#editYear').addClass("is-invalid");
     }
     if($('#editPrice').val() == "") {
@@ -295,49 +385,53 @@ $('#editVehicleModalSubmit').click(function(event) {
         $('#editDrivetrain').addClass("is-invalid");
     }
 
-    // Add the 'id' to the editObject.
-    editObject.id = id;
+    // If the form is completely filled out, submit it.
+    if($('#editMake').val() != "" && $('#editModel').val() != "" && $('#editYear').val().length == 4 && $('#editPrice').val() != "" && $('#editColor').val() != "" && $('#editMileage').val() != "" && $('#editType').val() != "" && $('#editTransmission').val() != "" && $('#editDrivetrain').val() != "") {
 
-    // Determine which data has changed and add that to the editObject to be passed
-    // to the ajax PUT method.
-    if($('#editMake').val() != currentData.make) {
-        editObject.make = $('#editMake').val();
-    }
-    if($('#editModel').val() != currentData.model) {
-        editObject.model = $('#editModel').val();
-    }
-    if($('#editYear').val() != currentData.year) {
-        editObject.year = $('#editYear').val();
-    }
-    if($('#editPrice').val() != currentData.price) {
-        editObject.price = $('#editPrice').val();
-    }
-    if($('#editColor').val() != currentData.color) {
-        editObject.color = $('#editColor').val();
-    }
-    if($('#editMileage').val() != currentData.mileage) {
-        editObject.mileage = $('#editMileage').val();
-    }
-    if($('#editType').val() != currentData.type) {
-        editObject.type = $('#editType').val();
-    }
-    if($('#editTransmission').val() != currentData.transmission) {
-        editObject.transmission = $('#editTransmission').val();
-    }
-    if($('#editDrivetrain').val() != currentData.drive) {
-        editObject.drive = $('#editDrivetrain').val();
-    }
+        // Add the 'id' to the editObject.
+        editObject.id = id;
 
-    // Check that data has been changed before running the ajax PUT request.
-    if(!$.isEmptyObject(editObject)) {
+        // Determine which data has changed and add that to the editObject to be passed
+        // to the ajax PUT method.
+        if($('#editMake').val() != currentData.make) {
+            editObject.make = $('#editMake').val();
+        }
+        if($('#editModel').val() != currentData.model) {
+            editObject.model = $('#editModel').val();
+        }
+        if($('#editYear').val() != currentData.year) {
+            editObject.year = $('#editYear').val();
+        }
+        if($('#editPrice').val() != currentData.price) {
+            editObject.price = $('#editPrice').val();
+        }
+        if($('#editColor').val() != currentData.color) {
+            editObject.color = $('#editColor').val();
+        }
+        if($('#editMileage').val() != currentData.mileage) {
+            editObject.mileage = $('#editMileage').val();
+        }
+        if($('#editType').val() != currentData.type) {
+            editObject.type = $('#editType').val();
+        }
+        if($('#editTransmission').val() != currentData.transmission) {
+            editObject.transmission = $('#editTransmission').val();
+        }
+        if($('#editDrivetrain').val() != currentData.drive) {
+            editObject.drive = $('#editDrivetrain').val();
+        }
 
-        // Submit the data the the ajax post method.
-        put();
+        // Check that data has been changed before running the ajax PUT request.
+        if(!$.isEmptyObject(editObject)) {
+
+            // Submit the data the the ajax post method.
+            put();
+        }
+
+        // Close the modal from.
+        $('#editVehicleModal').modal('hide');
+
     }
-
-    // Close the modal from.
-    $('#editVehicleModal').modal('hide');
-
 });
 /************************************ END *************************************/
 
