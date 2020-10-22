@@ -769,14 +769,13 @@ function get() {
                     .append($('<td>').text(value.make))
                     .append($('<td>').text(value.model))
                     .append($('<td>').text(value.year))
-                    .append($('<td>').text("$"+value.price))
+                    .append($('<td>').text("$"+parseInt(value.price).toLocaleString()))
                     .append($('<td>').text(value.color))
-                    .append($('<td>').text(value.mileage))
+                    .append($('<td>').text(parseInt(value.mileage).toLocaleString()))
                     .append($('<td>').text(value.type))
                     .append($('<td>').text(value.transmission))
                     .append($('<td>').text(value.drive))
                     .append($('<td><div class=\"d-flex\"><button id=\"editBtn\" class=\"mx-2 btn btn-sm btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editVehicleModal\" onclick=\"editRow(this)\"><i class=\"fas fa-pencil-alt\"></i></span></button><button id=\"deleteBtn\" class=\"mx-2 btn btn-sm btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteVehicleModal\" onclick=\"deleteRow(this)\"><i class=\"fas fa-trash-alt\"></i></span></button></div></td>'))
-                    
                 );
             })
         },
