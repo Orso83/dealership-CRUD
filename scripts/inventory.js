@@ -732,7 +732,7 @@ $('#orderByDrive').click(function() {
 **************************************************************************/
 function get() {
     $.ajax({
-        url: 'api/inventory',
+        url: 'api/',
         method: 'GET',
         data: getObject,
         success: function(data) {
@@ -776,7 +776,7 @@ function get() {
 **************************************************************************/
 function post() {
     $.ajax({
-        url: 'api/inventory',
+        url: 'api/',
         method: 'POST',
         data: postObject,
         success: function() {
@@ -816,7 +816,7 @@ function put() {
     });
 
     $.ajax({
-        url: 'api/inventory/?'+url,
+        url: 'api/?'+url,
         method: 'PUT',
         data: editObject,
         success: function() {
@@ -846,7 +846,7 @@ function put() {
 **************************************************************************/
 function deleteVehicle(id) {
     $.ajax({
-        url: 'api/inventory/?id='+id,
+        url: 'api/?id='+id,
         method: 'DELETE',
         success: function() {
             // Log a message apon success.
@@ -876,7 +876,7 @@ function deleteVehicle(id) {
 **************************************************************************/
 function getDistinctMake() {
     $.ajax({
-        url: 'api/inventory',
+        url: 'api/',
         method: 'GET',
         data: {distinctMake: '1'},
         success: function(data) {
@@ -905,7 +905,7 @@ function getDistinctMake() {
 **************************************************************************/
 function getDistinctColor() {
     $.ajax({
-        url: 'api/inventory',
+        url: 'api/',
         method: 'GET',
         data: {distinctColor: '1'},
         success: function(data) {
@@ -934,7 +934,7 @@ function getDistinctColor() {
 **************************************************************************/
 function getDistinctType() {
     $.ajax({
-        url: 'api/inventory',
+        url: 'api/',
         method: 'GET',
         data: {distinctType: '1'},
         success: function(data) {
@@ -963,7 +963,7 @@ function getDistinctType() {
 **************************************************************************/
 function getDistinctTransmission() {
     $.ajax({
-        url: 'api/inventory',
+        url: 'api/',
         method: 'GET',
         data: {distinctTransmission: '1'},
         success: function(data) {
@@ -992,7 +992,7 @@ function getDistinctTransmission() {
 **************************************************************************/
 function getDistinctDrivetrain() {
     $.ajax({
-        url: 'api/inventory',
+        url: 'api/',
         method: 'GET',
         data: {distinctDrivetrain: '1'},
         success: function(data) {
