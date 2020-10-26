@@ -21,12 +21,6 @@ var orderByTypeFlag = 1;
 var orderByTransmissionFlag = 1;
 var orderByDriveFlag = 1;
 
-// About this app card slide toggle.
-$('#aboutApp').hide();
-$('#aboutBtn').click(function(event) {
-  $('#aboutApp').slideToggle();
-});
-
 /*********************** Add new vehicle - Button event ***********************/
 $('#addNewVehicle').click(function() {
 
