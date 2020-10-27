@@ -15,38 +15,212 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
+    <div class="container-fluid">
+        <!-- Add A Vehicle Button -->
+        <div class="row mt-4 mx-xl-5">
+            <div class="mb-3 col-lg-3">
+                <div class="card bg-light">
+                    <div class="card-header">
+                        <h4 class="text-center">Add A Vehicle</h4>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" id="addNewVehicle" class="btn btn-lg btn-block btn-success" data-toggle="modal" data-target="#newVehicleModal"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                <p id="test"></p>
+                <!-- Show/Hide Search Panle Button -->
+                <button id="collapseBtn" class="btn btn-lg btn-block btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseCard" aria-expanded="false" aria-controls="collapseCard">Show/Hide Search <i class="fas fa-sort"></i></button>
 
-    <!-- Nav -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="container">
-            <!-- Brand -->
-            <a class="navbar-brand d-flex align-items-center" href="">
-                <img src="./icons/microchip.svg" width="50" height="50" alt="">
-                <h5 class="mb-0">Automotive Dealership Inventory</h5>
-            </a>
-            <!-- Toggler/collapsibe Button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Links -->
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.github.com/Orso83" target="_blank"><i class="fab fa-github-square fa-lg"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.linkedin.com/in/christopher-orsolini-74972213a" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
-                    </li>
-                </ul>
+                <!-- Search Sidebar -->
+                <div class="collapse" id="collapseCard">
+                    <div class="card bg-light">
+                        <div class="card-header">
+                            <h4 class="text-center">Search</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="">
+                                <div class="row">
+    
+                                    <!-- Make -->
+                                    <div class="col-6 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="selectMake">Make</label>
+                                            <select id="selectMake" name="make" class="form-control">
+                                                <option value="All">All</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Model -->
+                                    <div class="col-6 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="inputModel">Model</label>
+                                            <input id="inputModel" type="text" class="form-control">
+                                        </div>
+                                    </div>
+    
+                                    <!-- Year -->
+                                    <div class="col-6 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="">Year</label>
+                                            <div class="row no-gutters">
+                                                <div class="col">
+                                                  <input id="inputFromYear" type="text" class="form-control" placeholder="From">
+                                                </div>
+                                                <div class="col">
+                                                  <input id="inputToYear" type="text" class="form-control" placeholder="To">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Price -->
+                                    <div class="col-6 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="">Price</label>
+                                            <div class="row no-gutters">
+                                                <div class="col">
+                                                  <input id="inputFromPrice" type="text" class="form-control" placeholder="From">
+                                                </div>
+                                                <div class="col">
+                                                  <input id="inputToPrice" type="text" class="form-control" placeholder="To">
+                                                </div>
+                                              </div>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Color -->
+                                    <div class="col-6 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="selectColor">Color</label>
+                                            <select id="selectColor" name="color" class="form-control">
+                                                <option value="All">All</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Mileage -->
+                                    <div class="col-6 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="">Mileage</label>
+                                            <div class="row no-gutters">
+                                                <div class="col">
+                                                  <input id="inputFromMileage" type="text" class="form-control" placeholder="From">
+                                                </div>
+                                                <div class="col">
+                                                  <input id="inputToMileage" type="text" class="form-control" placeholder="To">
+                                                </div>
+                                              </div>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Type -->
+                                    <div class="col-6 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="selectType">Vehicle Type</label>
+                                            <select id="selectType" name="type" class="form-control">
+                                                <option value="All">All</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Transmission -->
+                                    <div class="col-6 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="selectTransmission">Transmission</label>
+                                            <select id="selectTransmission" name="make" class="form-control">
+                                                <option value="All">All</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Drivetrain -->
+                                    <div class="col-6 col-md-4 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="selectDrivetrain">Drivetrain</label>
+                                            <select id="selectDrivetrain" name="type" class="form-control">
+                                                <option value="All">All</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <button id="searchBtn" class="btn btn-primary">Search</button>
+                                        <button id="clearBtn" class="btn btn-outline-secondary">Reset</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Inventory</h4>
+                    </div>
+                    <div class="card-body px-1 px-lg-3">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <!-- Table header -->
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="text-center">Edit / Delete</th>
+                                        <th class="text-center">Make</th>
+                                        <th class="text-center">Model</th>
+                                        <th class="text-center">Year</th>
+                                        <th class="text-center">Price</th>
+                                        <th class="text-center">Color</th>
+                                        <th class="text-center">Mileage</th>
+                                        <th class="text-center">Type</th>
+                                        <th class="text-center">Transmission</th>
+                                        <th class="text-center">Drive</th>
+                                    </tr>
+                                </thead>
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class="text-center">
+                                            <button id="resetBtn" class="ml-2 px-2 btn btn-sm btn-outline-dark">Reset Sort</button>
+                                        </th>
+                                        <th class="text-center">
+                                            <button id="orderByMake" class="ml-2 px-1 btn btn-sm btn-outline-dark">Sort <i class="fas fa-sort"></i></button>
+                                        </th>
+                                        <th class="text-center">
+                                            <button id="orderByModel" class="ml-2 px-1 btn btn-sm btn-outline-dark">Sort <i class="fas fa-sort"></i></button>
+                                        </th>
+                                        <th class="text-center">
+                                            <button id="orderByYear" class="ml-2 px-1 btn btn-sm btn-outline-dark">Sort <i class="fas fa-sort"></i></button>
+                                        </th>
+                                        <th class="text-center">
+                                            <button id="orderByPrice" class="ml-2 px-1 btn btn-sm btn-outline-dark">Sort <i class="fas fa-sort"></i></button>
+                                        </th>
+                                        <th class="text-center">
+                                            <button id="orderByColor" class="ml-2 px-1 btn btn-sm btn-outline-dark">Sort <i class="fas fa-sort"></i></button>
+                                        </th>
+                                        <th class="text-center">
+                                            <button id="orderByMileage" class="ml-2 px-1 btn btn-sm btn-outline-dark">Sort <i class="fas fa-sort"></i></button>
+                                        </th>
+                                        <th class="text-center">
+                                            <button id="orderByType" class="ml-2 px-1 btn btn-sm btn-outline-dark">Sort <i class="fas fa-sort"></i></button>
+                                        </th>
+                                        <th class="text-center">
+                                            <button id="orderByTransmission" class="ml-2 px-1 btn btn-sm btn-outline-dark">Sort <i class="fas fa-sort"></i></button>
+                                        </th>
+                                        <th class="text-center">
+                                            <button id="orderByDrive" class="ml-2 px-1 btn btn-sm btn-outline-dark">Sort <i class="fas fa-sort"></i></button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
     <!-- Add a new vehicle modal -->
     <div class="modal fade" id="newVehicleModal" data-backdrop="static">
@@ -305,137 +479,6 @@
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
                   </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Sidebar -->
-    <div class="container mt-3">
-        <div id="sideBar" class="row">
-            <div class="col-2 bg-light pb-3 border h-100">
-                <!-- Add a new vehicle -->
-                <h4 class="text-center pt-3">Add Vehicle</h4>
-                <button type="button" id="addNewVehicle" class="btn btn-block btn-success" data-toggle="modal" data-target="#newVehicleModal"><i class="fas fa-plus"></i></button>
-                <hr>
-                <!-- Sidebar search form -->
-                <form>
-                    
-                    <!-- Make -->
-                    <div class="form-group mt-2">
-                        <h4 class="text-center">Search</h4>
-                        <label for="selectMake">Make</label>
-                        <select id="selectMake" name="make" class="form-control">
-                            <option value="All">All</option>
-                        </select>
-                    </div>
-
-                    <!-- Model -->
-                    <div class="form-group">
-                        <label for="inputModel">Model</label>
-                        <input id="inputModel" type="text" class="form-control">
-                    </div>
-
-                    <!-- Year -->
-                    <div class="form-group">
-                        <label for="">Year</label>
-                        <div class="row">
-                            <div class="col">
-                              <input id="inputFromYear" type="text" class="form-control" placeholder="From">
-                            </div>
-                            <div class="col">
-                              <input id="inputToYear" type="text" class="form-control" placeholder="To">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Price -->
-                    <div class="form-group">
-                        <label for="">Price</label>
-                        <div class="row">
-                            <div class="col">
-                              <input id="inputFromPrice" type="text" class="form-control" placeholder="From">
-                            </div>
-                            <div class="col">
-                              <input id="inputToPrice" type="text" class="form-control" placeholder="To">
-                            </div>
-                          </div>
-                    </div>
-
-                    <!-- Color -->
-                    <div class="form-group">
-                        <label for="selectColor">Color</label>
-                        <select id="selectColor" name="color" class="form-control">
-                            <option value="All">All</option>
-                        </select>
-                    </div>
-
-                    <!-- Mileage -->
-                    <div class="form-group">
-                        <label for="">Mileage</label>
-                        <div class="row">
-                            <div class="col">
-                              <input id="inputFromMileage" type="text" class="form-control" placeholder="From">
-                            </div>
-                            <div class="col">
-                              <input id="inputToMileage" type="text" class="form-control" placeholder="To">
-                            </div>
-                          </div>
-                    </div>
-
-                    <!-- Type -->
-                    <div class="form-group">
-                        <label for="selectType">Vehicle Type</label>
-                        <select id="selectType" name="type" class="form-control">
-                            <option value="All">All</option>
-                        </select>
-                    </div>
-
-                    <!-- Transmission -->
-                    <div class="form-group">
-                        <label for="selectTransmission">Transmission</label>
-                        <select id="selectTransmission" name="make" class="form-control">
-                            <option value="All">All</option>
-                        </select>
-                    </div>
-
-                    <!-- Drivetrain -->
-                    <div class="form-group">
-                        <label for="selectDrivetrain">Drivetrain</label>
-                        <select id="selectDrivetrain" name="type" class="form-control">
-                            <option value="All">All</option>
-                        </select>
-                    </div>
-
-                    <button id="searchBtn" class="btn btn-primary">Search</button>
-                    <button id="clearBtn" class="btn btn-outline-secondary float-right">Reset</button>
-                </form>
-            </div>
-
-            <!-- Table -->
-            <div class="col">
-                <table class="table table-striped table-bordered">
-
-                    <!-- Table header -->
-                    <thead class="thead-dark">
-                        <tr>
-                            <th class="px-1 py-1 text-center">Make<button id="orderByMake" class="ml-2 px-1 btn btn-sm btn-light"><i class="fas fa-sort"></i></button></th>
-                            <th class="px-1 py-1 text-center">Model<button id="orderByModel" class="ml-2 px-1 btn btn-sm btn-light"><i class="fas fa-sort"></i></button></th>
-                            <th class="px-1 py-1 text-center">Year<button id="orderByYear" class="ml-2 px-1 btn btn-sm btn-light"><i class="fas fa-sort"></i></button></th>
-                            <th class="px-1 py-1 text-center">Price<button id="orderByPrice" class="ml-2 px-1 btn btn-sm btn-light"><i class="fas fa-sort"></i></button></th>
-                            <th class="px-1 py-1 text-center">Color<button id="orderByColor" class="ml-2 px-1 btn btn-sm btn-light"><i class="fas fa-sort"></i></button></th>
-                            <th class="px-1 py-1 text-center">Mileage<button id="orderByMileage" class="ml-2 px-1 btn btn-sm btn-light"><i class="fas fa-sort"></i></button></th>
-                            <th class="px-1 py-1 text-center">Type<button id="orderByType" class="ml-2 px-1 btn btn-sm btn-light"><i class="fas fa-sort"></i></button></th>
-                            <th class="px-1 py-1 text-center">Transmission<button id="orderByTransmission" class="ml-2 px-1 btn btn-sm btn-light"><i class="fas fa-sort"></i></button></th>
-                            <th class="px-1 py-1 text-center">Drive<button id="orderByDrive" class="ml-2 px-1 btn btn-sm btn-light"><i class="fas fa-sort"></i></button></th>
-                            <th class="px-1 py-2 text-center">Edit / Delete</th>
-                        </tr>
-                    </thead>
-
-                    <!-- Table body -->
-                    <tbody></tbody>
-
-                </table>
-            </div>
-
         </div>
     </div>
 

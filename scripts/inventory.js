@@ -21,6 +21,26 @@ var orderByTypeFlag = 1;
 var orderByTransmissionFlag = 1;
 var orderByDriveFlag = 1;
 
+// Monitor the screen size inorder to show/hide the search bar.
+if($(window).width() >= 992) {
+    $('#collapseBtn').hide();
+    $('#collapseCard').collapse('show');
+} else {
+    $('#collapseBtn').show();
+    $('#collapseCard').collapse('hide');
+};
+
+$(window).resize(function() {
+    if($(window).width() > 976) {
+        $('#collapseBtn').hide();
+        $('#collapseCard').collapse('show');
+    } else {
+        $('#collapseBtn').show();
+        // Bug on smart phones.
+        // $('#collapseCard').collapse('hide'); 
+    }
+});
+
 /*********************** Add new vehicle - Button event ***********************/
 $('#addNewVehicle').click(function() {
 
@@ -190,7 +210,7 @@ $('#addNewDrivetrain').keyup(function() {
 function deleteRow(row) {
     
     // Create the modal 'Are you sure' message.
-    $('#deleteModalMessage').text($(row).closest('tr')[0].cells[4].innerText+", "+$(row).closest('tr')[0].cells[2].innerText+" "+$(row).closest('tr')[0].cells[0].innerText+" "+$(row).closest('tr')[0].cells[1].innerText+".");
+    $('#deleteModalMessage').text($(row).closest('tr')[0].cells[5].innerText+", "+$(row).closest('tr')[0].cells[3].innerText+" "+$(row).closest('tr')[0].cells[1].innerText+" "+$(row).closest('tr')[0].cells[2].innerText+".");
 
     // Take the row id and store it in a variable.
     id = $(row).closest('tr').attr('id');
@@ -233,15 +253,15 @@ function editRow(row) {
     $('#editDrivetrain').removeClass("is-invalid");
 
     // Fill the form with the current data from the selected row.
-    $('#editMake').val($(row).closest('tr')[0].cells[0].innerText);
-    $('#editModel').val($(row).closest('tr')[0].cells[1].innerText);
-    $('#editYear').val($(row).closest('tr')[0].cells[2].innerText);
-    $('#editPrice').val($(row).closest('tr')[0].cells[3].innerText);
-    $('#editColor').val($(row).closest('tr')[0].cells[4].innerText);
-    $('#editMileage').val($(row).closest('tr')[0].cells[5].innerText);
-    $('#editType').val($(row).closest('tr')[0].cells[6].innerText);
-    $('#editTransmission').val($(row).closest('tr')[0].cells[7].innerText);
-    $('#editDrivetrain').val($(row).closest('tr')[0].cells[8].innerText);
+    $('#editMake').val($(row).closest('tr')[0].cells[1].innerText);
+    $('#editModel').val($(row).closest('tr')[0].cells[2].innerText);
+    $('#editYear').val($(row).closest('tr')[0].cells[3].innerText);
+    $('#editPrice').val($(row).closest('tr')[0].cells[4].innerText);
+    $('#editColor').val($(row).closest('tr')[0].cells[5].innerText);
+    $('#editMileage').val($(row).closest('tr')[0].cells[6].innerText);
+    $('#editType').val($(row).closest('tr')[0].cells[7].innerText);
+    $('#editTransmission').val($(row).closest('tr')[0].cells[8].innerText);
+    $('#editDrivetrain').val($(row).closest('tr')[0].cells[9].innerText);
 
     // Take the row id and store it in a variable.
     id = $(row).closest('tr').attr('id');
@@ -421,6 +441,29 @@ $('#editVehicleModalSubmit').click(function(event) {
 $('#clearBtn').click(function(event) {
 
     event.preventDefault();
+
+    // Clear all inputs and set all selects to 'All'.
+    $('#selectMake')[0].value = 'All';
+    $('#selectColor')[0].value = 'All';
+    $('#selectType')[0].value = 'All';
+    $('#selectTransmission')[0].value = 'All';
+    $('#selectDrivetrain')[0].value = 'All';
+    $('#inputModel')[0].value = '';
+    $('#inputFromYear')[0].value = '';
+    $('#inputToYear')[0].value = '';
+    $('#inputFromPrice')[0].value = '';
+    $('#inputToPrice')[0].value = '';
+    $('#inputFromMileage')[0].value = '';
+    $('#inputToMileage')[0].value = '';
+
+    // Empty the ajax data object.
+    getObject = {};
+
+    // Run the ajax get request.
+    get();
+});
+
+$('#resetBtn').click(function(event) {
 
     // Clear all inputs and set all selects to 'All'.
     $('#selectMake')[0].value = 'All';
@@ -748,6 +791,7 @@ function get() {
             // Output the data into the table.
             $.each(data, function(index, value) {
                 $('tbody').append($('<tr>').attr('id', value.id)
+                    .append($('<td><div class=\"d-flex justify-content-center\"><button id=\"editBtn\" class=\"mx-2 btn btn-sm btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editVehicleModal\" onclick=\"editRow(this)\"><i class=\"fas fa-pencil-alt\"></i></span></button><button id=\"deleteBtn\" class=\"mx-2 btn btn-sm btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteVehicleModal\" onclick=\"deleteRow(this)\"><i class=\"fas fa-trash-alt\"></i></span></button></div></td>'))
                     .append($('<td>').text(value.make))
                     .append($('<td>').text(value.model))
                     .append($('<td>').text(value.year))
@@ -757,7 +801,6 @@ function get() {
                     .append($('<td>').text(value.type))
                     .append($('<td>').text(value.transmission))
                     .append($('<td>').text(value.drive))
-                    .append($('<td><div class=\"d-flex\"><button id=\"editBtn\" class=\"mx-2 btn btn-sm btn-outline-primary\" data-toggle=\"modal\" data-target=\"#editVehicleModal\" onclick=\"editRow(this)\"><i class=\"fas fa-pencil-alt\"></i></span></button><button id=\"deleteBtn\" class=\"mx-2 btn btn-sm btn-outline-danger\" data-toggle=\"modal\" data-target=\"#deleteVehicleModal\" onclick=\"deleteRow(this)\"><i class=\"fas fa-trash-alt\"></i></span></button></div></td>'))
                 );
             })
         },
