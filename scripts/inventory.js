@@ -245,7 +245,7 @@ function editRow(row) {
 
     // Take the row id and store it in a variable.
     id = $(row).closest('tr').attr('id');
-
+console.log("Selected: "+$(row).closest('tr').attr('id'));
     // Fill the object with the current data.
     currentData.make = $('#editMake').val();
     currentData.model = $('#editModel').val();
@@ -405,6 +405,9 @@ $('#editVehicleModalSubmit').click(function(event) {
 
             // Submit the data the the ajax post method.
             put();
+
+            // Clear the editObject.
+            editObject = {};
         }
 
         // Close the modal from.
@@ -826,6 +829,9 @@ function put() {
             // Reload the search from's select dropdowns and the table body.
             reloadSelectDropdowns();
             get();
+
+            // Clear the url string.
+            url = "";
         },
         error: function (xhr, ajaxOptions, thrownError) {
             // Log any error messages.
