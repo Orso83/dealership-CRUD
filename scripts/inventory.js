@@ -462,29 +462,6 @@ $('#clearBtn').click(function(event) {
     // Run the ajax get request.
     get();
 });
-
-$('#resetBtn').click(function(event) {
-
-    // Clear all inputs and set all selects to 'All'.
-    $('#selectMake')[0].value = 'All';
-    $('#selectColor')[0].value = 'All';
-    $('#selectType')[0].value = 'All';
-    $('#selectTransmission')[0].value = 'All';
-    $('#selectDrivetrain')[0].value = 'All';
-    $('#inputModel')[0].value = '';
-    $('#inputFromYear')[0].value = '';
-    $('#inputToYear')[0].value = '';
-    $('#inputFromPrice')[0].value = '';
-    $('#inputToPrice')[0].value = '';
-    $('#inputFromMileage')[0].value = '';
-    $('#inputToMileage')[0].value = '';
-
-    // Empty the ajax data object.
-    getObject = {};
-
-    // Run the ajax get request.
-    get();
-});
 /************************************ END *************************************/
 
 /********************* Search form - Search button event **********************/
@@ -622,6 +599,29 @@ $('#searchBtn').click(function(event) {
 *  Purpose: The following click events handle the ORDER BY functionality of    *
 *           the table header buttons.                                          *
 *******************************************************************************/
+// Reset order by.
+$('#resetBtn').click(function(event) {
+
+    // Clear all inputs and set all selects to 'All'.
+    $('#selectMake')[0].value = 'All';
+    $('#selectColor')[0].value = 'All';
+    $('#selectType')[0].value = 'All';
+    $('#selectTransmission')[0].value = 'All';
+    $('#selectDrivetrain')[0].value = 'All';
+    $('#inputModel')[0].value = '';
+    $('#inputFromYear')[0].value = '';
+    $('#inputToYear')[0].value = '';
+    $('#inputFromPrice')[0].value = '';
+    $('#inputToPrice')[0].value = '';
+    $('#inputFromMileage')[0].value = '';
+    $('#inputToMileage')[0].value = '';
+
+    // Empty the ajax data object.
+    getObject = {};
+
+    // Run the ajax get request.
+    get();
+});
 
 // Order by make.
 $('#orderByMake').click(function() {

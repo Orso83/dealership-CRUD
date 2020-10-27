@@ -14,11 +14,47 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
+
 <body>
+
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="">
+                <img src="./icons/microchip.svg" width="50" height="50" alt="">
+                <h5 class="mb-0">Automotive Dealership Inventory</h5>
+            </a>
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.github.com/Orso83" target="_blank"><i class="fab fa-github-square fa-lg"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.linkedin.com/in/christopher-orsolini-74972213a" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container-fluid">
-        <!-- Add A Vehicle Button -->
+
         <div class="row mt-4 mx-xl-5">
             <div class="mb-3 col-lg-3">
+
+                <!-- Add A Vehicle Button -->
                 <div class="card bg-light">
                     <div class="card-header">
                         <h4 class="text-center">Add A Vehicle</h4>
@@ -27,7 +63,7 @@
                         <button type="button" id="addNewVehicle" class="btn btn-lg btn-block btn-success" data-toggle="modal" data-target="#newVehicleModal"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
-                <p id="test"></p>
+
                 <!-- Show/Hide Search Panle Button -->
                 <button id="collapseBtn" class="btn btn-lg btn-block btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseCard" aria-expanded="false" aria-controls="collapseCard">Show/Hide Search <i class="fas fa-sort"></i></button>
 
@@ -156,7 +192,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-9">
+
                 <div class="card">
                     <div class="card-header">
                         <h4 class="text-center">Inventory</h4>
