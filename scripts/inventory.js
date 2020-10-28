@@ -629,14 +629,47 @@ $('#orderByMake').click(function() {
     // Toggle the boolean.
     orderByMakeFlag ^= 1;
 
+    // Remove any prior 'order by' critiria from the getObject.
+    if(getObject.hasOwnProperty('orderByModel')) {
+        delete getObject.orderByModel;
+    }
+    if(getObject.hasOwnProperty('orderByYear')) {
+        delete getObject.orderByYear;
+    }
+    if(getObject.hasOwnProperty('orderByPrice')) {
+        delete getObject.orderByPrice;
+    }
+    if(getObject.hasOwnProperty('orderByColor')) {
+        delete getObject.orderByColor;
+    }
+    if(getObject.hasOwnProperty('orderByMileage')) {
+        delete getObject.orderByMileage;
+    }
+    if(getObject.hasOwnProperty('orderByType')) {
+        delete getObject.orderByType;
+    }
+    if(getObject.hasOwnProperty('orderByTransmission')) {
+        delete getObject.orderByTransmission;
+    }
+    if(getObject.hasOwnProperty('orderByDrive')) {
+        delete getObject.orderByDrive;
+    }
+
+    // Reset all other 'order by' flags.
+    orderByModelFlag = 1;
+    orderByYearFlag = 1;
+    orderByPriceFlag = 1;
+    orderByColorFlag = 1;
+    orderByMileageFlag = 1;
+    orderByTypeFlag = 1;
+    orderByTransmissionFlag = 1;
+    orderByDriveFlag = 1;
+
     // Add the ORDER BY critiria to the GET object for ajax.
     getObject.orderByMake = orderByMakeFlag;
 
     // Reload the table.
     get();
-
-    // Clear the getObject.
-    getObject = {};
 });
 
 // Order by model.
@@ -645,14 +678,47 @@ $('#orderByModel').click(function() {
     // Toggle the boolean.
     orderByModelFlag ^= 1;
 
+    // Remove any prior 'order by' critiria from the getObject.
+    if(getObject.hasOwnProperty('orderByMake')) {
+        delete getObject.orderByMake;
+    }
+    if(getObject.hasOwnProperty('orderByYear')) {
+        delete getObject.orderByYear;
+    }
+    if(getObject.hasOwnProperty('orderByPrice')) {
+        delete getObject.orderByPrice;
+    }
+    if(getObject.hasOwnProperty('orderByColor')) {
+        delete getObject.orderByColor;
+    }
+    if(getObject.hasOwnProperty('orderByMileage')) {
+        delete getObject.orderByMileage;
+    }
+    if(getObject.hasOwnProperty('orderByType')) {
+        delete getObject.orderByType;
+    }
+    if(getObject.hasOwnProperty('orderByTransmission')) {
+        delete getObject.orderByTransmission;
+    }
+    if(getObject.hasOwnProperty('orderByDrive')) {
+        delete getObject.orderByDrive;
+    }
+
+    // Reset all other 'order by' flags.
+    orderByMakeFlag = 1;
+    orderByYearFlag = 1;
+    orderByPriceFlag = 1;
+    orderByColorFlag = 1;
+    orderByMileageFlag = 1;
+    orderByTypeFlag = 1;
+    orderByTransmissionFlag = 1;
+    orderByDriveFlag = 1;
+
     // Add the ORDER BY critiria to the GET object for ajax.
     getObject.orderByModel = orderByModelFlag;
 
     // Reload the table.
     get();
-
-    // Clear the getObject.
-    getObject = {};
 });
 
 // Order by year.
@@ -661,14 +727,47 @@ $('#orderByYear').click(function() {
     // Toggle the boolean.
     orderByYearFlag ^= 1;
 
+    // Remove any prior 'order by' critiria from the getObject.
+    if(getObject.hasOwnProperty('orderByMake')) {
+        delete getObject.orderByMake;
+    }
+    if(getObject.hasOwnProperty('orderByModel')) {
+        delete getObject.orderByModel;
+    }
+    if(getObject.hasOwnProperty('orderByPrice')) {
+        delete getObject.orderByPrice;
+    }
+    if(getObject.hasOwnProperty('orderByColor')) {
+        delete getObject.orderByColor;
+    }
+    if(getObject.hasOwnProperty('orderByMileage')) {
+        delete getObject.orderByMileage;
+    }
+    if(getObject.hasOwnProperty('orderByType')) {
+        delete getObject.orderByType;
+    }
+    if(getObject.hasOwnProperty('orderByTransmission')) {
+        delete getObject.orderByTransmission;
+    }
+    if(getObject.hasOwnProperty('orderByDrive')) {
+        delete getObject.orderByDrive;
+    }
+
+    // Reset all other 'order by' flags.
+    orderByMakeFlag = 1;
+    orderByModelFlag = 1;
+    orderByPriceFlag = 1;
+    orderByColorFlag = 1;
+    orderByMileageFlag = 1;
+    orderByTypeFlag = 1;
+    orderByTransmissionFlag = 1;
+    orderByDriveFlag = 1;
+
     // Add the ORDER BY critiria to the GET object for ajax.
     getObject.orderByYear = orderByYearFlag;
 
     // Reload the table.
     get();
-
-    // Clear the getObject.
-    getObject = {};
 });
 
 // Order by price.
@@ -677,14 +776,47 @@ $('#orderByPrice').click(function() {
     // Toggle the boolean.
     orderByPriceFlag ^= 1;
 
+    // Remove any prior 'order by' critiria from the getObject.
+    if(getObject.hasOwnProperty('orderByMake')) {
+        delete getObject.orderByMake;
+    }
+    if(getObject.hasOwnProperty('orderByModel')) {
+        delete getObject.orderByModel;
+    }
+    if(getObject.hasOwnProperty('orderByYear')) {
+        delete getObject.orderByYear;
+    }
+    if(getObject.hasOwnProperty('orderByColor')) {
+        delete getObject.orderByColor;
+    }
+    if(getObject.hasOwnProperty('orderByMileage')) {
+        delete getObject.orderByMileage;
+    }
+    if(getObject.hasOwnProperty('orderByType')) {
+        delete getObject.orderByType;
+    }
+    if(getObject.hasOwnProperty('orderByTransmission')) {
+        delete getObject.orderByTransmission;
+    }
+    if(getObject.hasOwnProperty('orderByDrive')) {
+        delete getObject.orderByDrive;
+    }
+
+    // Reset all other 'order by' flags.
+    orderByMakeFlag = 1;
+    orderByModelFlag = 1;
+    orderByYearFlag = 1;
+    orderByColorFlag = 1;
+    orderByMileageFlag = 1;
+    orderByTypeFlag = 1;
+    orderByTransmissionFlag = 1;
+    orderByDriveFlag = 1;
+
     // Add the ORDER BY critiria to the GET object for ajax.
     getObject.orderByPrice = orderByPriceFlag;
 
     // Reload the table.
     get();
-
-    // Clear the getObject.
-    getObject = {};
 });
 
 // Order by color.
@@ -693,14 +825,47 @@ $('#orderByColor').click(function() {
     // Toggle the boolean.
     orderByColorFlag ^= 1;
 
+    // Remove any prior 'order by' critiria from the getObject.
+    if(getObject.hasOwnProperty('orderByMake')) {
+        delete getObject.orderByMake;
+    }
+    if(getObject.hasOwnProperty('orderByModel')) {
+        delete getObject.orderByModel;
+    }
+    if(getObject.hasOwnProperty('orderByYear')) {
+        delete getObject.orderByYear;
+    }
+    if(getObject.hasOwnProperty('orderByPrice')) {
+        delete getObject.orderByPrice;
+    }
+    if(getObject.hasOwnProperty('orderByMileage')) {
+        delete getObject.orderByMileage;
+    }
+    if(getObject.hasOwnProperty('orderByType')) {
+        delete getObject.orderByType;
+    }
+    if(getObject.hasOwnProperty('orderByTransmission')) {
+        delete getObject.orderByTransmission;
+    }
+    if(getObject.hasOwnProperty('orderByDrive')) {
+        delete getObject.orderByDrive;
+    }
+
+    // Reset all other 'order by' flags.
+    orderByMakeFlag = 1;
+    orderByModelFlag = 1;
+    orderByYearFlag = 1;
+    orderByPriceFlag = 1;
+    orderByMileageFlag = 1;
+    orderByTypeFlag = 1;
+    orderByTransmissionFlag = 1;
+    orderByDriveFlag = 1;
+
     // Add the ORDER BY critiria to the GET object for ajax.
     getObject.orderByColor = orderByColorFlag;
 
     // Reload the table.
     get();
-
-    // Clear the getObject.
-    getObject = {};
 });
 
 // Order by mileage.
@@ -709,14 +874,47 @@ $('#orderByMileage').click(function() {
     // Toggle the boolean.
     orderByMileageFlag ^= 1;
 
+    // Remove any prior 'order by' critiria from the getObject.
+    if(getObject.hasOwnProperty('orderByMake')) {
+        delete getObject.orderByMake;
+    }
+    if(getObject.hasOwnProperty('orderByModel')) {
+        delete getObject.orderByModel;
+    }
+    if(getObject.hasOwnProperty('orderByYear')) {
+        delete getObject.orderByYear;
+    }
+    if(getObject.hasOwnProperty('orderByPrice')) {
+        delete getObject.orderByPrice;
+    }
+    if(getObject.hasOwnProperty('orderByColor')) {
+        delete getObject.orderByColor;
+    }
+    if(getObject.hasOwnProperty('orderByType')) {
+        delete getObject.orderByType;
+    }
+    if(getObject.hasOwnProperty('orderByTransmission')) {
+        delete getObject.orderByTransmission;
+    }
+    if(getObject.hasOwnProperty('orderByDrive')) {
+        delete getObject.orderByDrive;
+    }
+
+    // Reset all other 'order by' flags.
+    orderByMakeFlag = 1;
+    orderByModelFlag = 1;
+    orderByYearFlag = 1;
+    orderByPriceFlag = 1;
+    orderByColorFlag = 1;
+    orderByTypeFlag = 1;
+    orderByTransmissionFlag = 1;
+    orderByDriveFlag = 1;
+
     // Add the ORDER BY critiria to the GET object for ajax.
     getObject.orderByMileage = orderByMileageFlag;
 
     // Reload the table.
     get();
-
-    // Clear the getObject.
-    getObject = {};
 });
 
 // Order by type.
@@ -725,14 +923,47 @@ $('#orderByType').click(function() {
     // Toggle the boolean.
     orderByTypeFlag ^= 1;
 
+    // Remove any prior 'order by' critiria from the getObject.
+    if(getObject.hasOwnProperty('orderByMake')) {
+        delete getObject.orderByMake;
+    }
+    if(getObject.hasOwnProperty('orderByModel')) {
+        delete getObject.orderByModel;
+    }
+    if(getObject.hasOwnProperty('orderByYear')) {
+        delete getObject.orderByYear;
+    }
+    if(getObject.hasOwnProperty('orderByPrice')) {
+        delete getObject.orderByPrice;
+    }
+    if(getObject.hasOwnProperty('orderByColor')) {
+        delete getObject.orderByColor;
+    }
+    if(getObject.hasOwnProperty('orderByMileage')) {
+        delete getObject.orderByMileage;
+    }
+    if(getObject.hasOwnProperty('orderByTransmission')) {
+        delete getObject.orderByTransmission;
+    }
+    if(getObject.hasOwnProperty('orderByDrive')) {
+        delete getObject.orderByDrive;
+    }
+
+    // Reset all other 'order by' flags.
+    orderByMakeFlag = 1;
+    orderByModelFlag = 1;
+    orderByYearFlag = 1;
+    orderByPriceFlag = 1;
+    orderByColorFlag = 1;
+    orderByMileageFlag = 1;
+    orderByTransmissionFlag = 1;
+    orderByDriveFlag = 1;
+
     // Add the ORDER BY critiria to the GET object for ajax.
     getObject.orderByType = orderByTypeFlag;
 
     // Reload the table.
     get();
-
-    // Clear the getObject.
-    getObject = {};
 });
 
 // Order by transmission.
@@ -741,14 +972,47 @@ $('#orderByTransmission').click(function() {
     // Toggle the boolean.
     orderByTransmissionFlag ^= 1;
 
+    // Remove any prior 'order by' critiria from the getObject.
+    if(getObject.hasOwnProperty('orderByMake')) {
+        delete getObject.orderByMake;
+    }
+    if(getObject.hasOwnProperty('orderByModel')) {
+        delete getObject.orderByModel;
+    }
+    if(getObject.hasOwnProperty('orderByYear')) {
+        delete getObject.orderByYear;
+    }
+    if(getObject.hasOwnProperty('orderByPrice')) {
+        delete getObject.orderByPrice;
+    }
+    if(getObject.hasOwnProperty('orderByColor')) {
+        delete getObject.orderByColor;
+    }
+    if(getObject.hasOwnProperty('orderByMileage')) {
+        delete getObject.orderByMileage;
+    }
+    if(getObject.hasOwnProperty('orderByType')) {
+        delete getObject.orderByType;
+    }
+    if(getObject.hasOwnProperty('orderByDrive')) {
+        delete getObject.orderByDrive;
+    }
+
+    // Reset all other 'order by' flags.
+    orderByMakeFlag = 1;
+    orderByModelFlag = 1;
+    orderByYearFlag = 1;
+    orderByPriceFlag = 1;
+    orderByColorFlag = 1;
+    orderByMileageFlag = 1;
+    orderByTypeFlag = 1;
+    orderByDriveFlag = 1;
+
     // Add the ORDER BY critiria to the GET object for ajax.
     getObject.orderByTransmission = orderByTransmissionFlag;
 
     // Reload the table.
     get();
-
-    // Clear the getObject.
-    getObject = {};
 });
 
 // Order by drive.
@@ -757,14 +1021,47 @@ $('#orderByDrive').click(function() {
     // Toggle the boolean.
     orderByDriveFlag ^= 1;
 
+    // Remove any prior 'order by' critiria from the getObject.
+    if(getObject.hasOwnProperty('orderByMake')) {
+        delete getObject.orderByMake;
+    }
+    if(getObject.hasOwnProperty('orderByModel')) {
+        delete getObject.orderByModel;
+    }
+    if(getObject.hasOwnProperty('orderByYear')) {
+        delete getObject.orderByYear;
+    }
+    if(getObject.hasOwnProperty('orderByPrice')) {
+        delete getObject.orderByPrice;
+    }
+    if(getObject.hasOwnProperty('orderByColor')) {
+        delete getObject.orderByColor;
+    }
+    if(getObject.hasOwnProperty('orderByMileage')) {
+        delete getObject.orderByMileage;
+    }
+    if(getObject.hasOwnProperty('orderByType')) {
+        delete getObject.orderByType;
+    }
+    if(getObject.hasOwnProperty('orderByTransmission')) {
+        delete getObject.orderByTransmission;
+    }
+
+    // Reset all other 'order by' flags.
+    orderByMakeFlag = 1;
+    orderByModelFlag = 1;
+    orderByYearFlag = 1;
+    orderByPriceFlag = 1;
+    orderByColorFlag = 1;
+    orderByMileageFlag = 1;
+    orderByTypeFlag = 1;
+    orderByTransmissionFlag = 1;
+
     // Add the ORDER BY critiria to the GET object for ajax.
     getObject.orderByDrive = orderByDriveFlag;
 
     // Reload the table.
     get();
-
-    // Clear the getObject.
-    getObject = {};
 });
 
 /**************************************************************************
