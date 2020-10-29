@@ -108,13 +108,13 @@ $('#addVehicleModalSubmit').click(function(event) {
     if($('#addNewMake').val() != "" && $('#addNewModel').val() != "" && $('#addNewYear').val().length == 4 && $('#addNewPrice').val() != "" && $('#addNewColor').val() != "" && $('#addNewMileage').val() != "" && $('#addNewType').val() != "" && $('#addNewTransmission').val() != "" && $('#addNewDrivetrain').val() != "") {
 
         // Add the data to the JS object.
-        postObject.make = $('#addNewMake').val();
-        postObject.model = $('#addNewModel').val();
+        postObject.make = $('#addNewMake').val().charAt(0).toUpperCase()+$('#addNewMake').val().slice(1);
+        postObject.model = $('#addNewModel').val().charAt(0).toUpperCase()+$('#addNewModel').val().slice(1);
         postObject.year = $('#addNewYear').val();
         postObject.price = $('#addNewPrice').val();
-        postObject.color = $('#addNewColor').val();
+        postObject.color = $('#addNewColor').val().charAt(0).toUpperCase()+$('#addNewColor').val().slice(1);
         postObject.mileage = $('#addNewMileage').val();
-        postObject.type = $('#addNewType').val();
+        postObject.type = $('#addNewType').val().charAt(0).toUpperCase()+$('#addNewType').val().slice(1);
         postObject.transmission = $('#addNewTransmission').val();
         postObject.drive = $('#addNewDrivetrain').val();
 
@@ -265,7 +265,7 @@ function editRow(row) {
 
     // Take the row id and store it in a variable.
     id = $(row).closest('tr').attr('id');
-console.log("Selected: "+$(row).closest('tr').attr('id'));
+
     // Fill the object with the current data.
     currentData.make = $('#editMake').val();
     currentData.model = $('#editModel').val();
@@ -393,10 +393,10 @@ $('#editVehicleModalSubmit').click(function(event) {
         // Determine which data has changed and add that to the editObject to be passed
         // to the ajax PUT method.
         if($('#editMake').val() != currentData.make) {
-            editObject.make = $('#editMake').val();
+            editObject.make = $('#editMake').val().charAt(0).toUpperCase()+$('#editMake').val().slice(1);
         }
         if($('#editModel').val() != currentData.model) {
-            editObject.model = $('#editModel').val();
+            editObject.model = $('#editModel').val().charAt(0).toUpperCase()+$('#editModel').val().slice(1);
         }
         if($('#editYear').val() != currentData.year) {
             // Remove all non-numeric characters from the string.
@@ -407,14 +407,14 @@ $('#editVehicleModalSubmit').click(function(event) {
             editObject.price = $('#editPrice').val().replace(/\D/g,'');
         }
         if($('#editColor').val() != currentData.color) {
-            editObject.color = $('#editColor').val();
+            editObject.color = $('#editColor').val().charAt(0).toUpperCase()+$('#editColor').val().slice(1);
         }
         if($('#editMileage').val() != currentData.mileage) {
             // Remove all non-numeric characters from the string.
             editObject.mileage = $('#editMileage').val().replace(/\D/g,'');
         }
         if($('#editType').val() != currentData.type) {
-            editObject.type = $('#editType').val();
+            editObject.type = $('#editType').val().charAt(0).toUpperCase()+$('#editType').val().slice(1);
         }
         if($('#editTransmission').val() != currentData.transmission) {
             editObject.transmission = $('#editTransmission').val();
