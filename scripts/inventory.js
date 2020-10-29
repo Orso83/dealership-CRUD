@@ -399,16 +399,19 @@ $('#editVehicleModalSubmit').click(function(event) {
             editObject.model = $('#editModel').val();
         }
         if($('#editYear').val() != currentData.year) {
-            editObject.year = $('#editYear').val();
+            // Remove all non-numeric characters from the string.
+            editObject.year = $('#editYear').val().replace(/\D/g,'');
         }
         if($('#editPrice').val() != currentData.price) {
-            editObject.price = $('#editPrice').val();
+            // Remove all non-numeric characters from the string.
+            editObject.price = $('#editPrice').val().replace(/\D/g,'');
         }
         if($('#editColor').val() != currentData.color) {
             editObject.color = $('#editColor').val();
         }
         if($('#editMileage').val() != currentData.mileage) {
-            editObject.mileage = $('#editMileage').val();
+            // Remove all non-numeric characters from the string.
+            editObject.mileage = $('#editMileage').val().replace(/\D/g,'');
         }
         if($('#editType').val() != currentData.type) {
             editObject.type = $('#editType').val();
