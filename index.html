@@ -522,12 +522,14 @@
 
     <script src="./scripts/inventory.js"></script>
     <script>
-        getDistinctMake();
-        getDistinctColor();
-        getDistinctType();
-        getDistinctTransmission();
-        getDistinctDrivetrain();
-        get();
+        $(document).ready(function() {
+            getDistinctMake();
+            getDistinctColor();
+            getDistinctType();
+            getDistinctTransmission();
+            getDistinctDrivetrain();
+            get();
+        });
     </script>
 </body>
 </html>

@@ -21,24 +21,26 @@ var orderByTypeFlag = 1;
 var orderByTransmissionFlag = 1;
 var orderByDriveFlag = 1;
 
-// Monitor the screen size inorder to show/hide the search bar.
-if($(window).width() >= 992) {
-    $('#collapseBtn').hide();
-    $('#collapseCard').collapse('show');
-} else {
-    $('#collapseBtn').show();
-    $('#collapseCard').collapse('hide');
-};
-
-$(window).resize(function() {
-    if($(window).width() > 976) {
+$(document).ready(function() {
+    // Monitor the screen size inorder to show/hide the search bar.
+    if($(window).width() >= 992) {
         $('#collapseBtn').hide();
         $('#collapseCard').collapse('show');
     } else {
         $('#collapseBtn').show();
-        // Bug on smart phones.
-        // $('#collapseCard').collapse('hide'); 
-    }
+        $('#collapseCard').collapse('hide');
+    };
+
+    $(window).resize(function() {
+        if($(window).width() > 976) {
+            $('#collapseBtn').hide();
+            $('#collapseCard').collapse('show');
+        } else {
+            $('#collapseBtn').show();
+            // Bug on smart phones.
+            // $('#collapseCard').collapse('hide'); 
+        }
+    });
 });
 
 /*********************** Add new vehicle - Button event ***********************/
