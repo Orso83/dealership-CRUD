@@ -597,6 +597,11 @@ $('#searchBtn').click(function(event) {
 
     // Run the ajax get request.
     get();
+
+    // On mobile device, collapse the search bar.
+    if($(window).width() < 992) {
+        $('#collapseCard').collapse('hide');
+    }
 });
 /************************************ END *************************************/
 
